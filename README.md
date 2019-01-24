@@ -1,8 +1,10 @@
 # Research UCLA
 
-<Insert description here>
+ACM AI is trying to develop a website to give students more information about opportunities on campus. These involve research, graduate school, news, etc but we need help fleshing out the website for native and mobile.
 
 # Development
+
+Branches should be in the format of `<yourname>/<feature>' e.g. `yvonne/add-navbar`
 
 To start off, install dependencies with:
 
