@@ -4,7 +4,7 @@ ACM AI is trying to develop a website to give students more information about op
 
 # Development
 
-Branches should be in the format of `<yourname>/<feature>' e.g. `yvonne/add-navbar`
+Branches should be in the format of `<yourname>/<feature>` e.g. `yvonne/add-navbar`
 
 To start off, install dependencies with:
 
