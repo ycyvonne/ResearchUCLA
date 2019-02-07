@@ -46,6 +46,7 @@
 a {
     text-decoration: none;
     color: white;
+    opacity: 1;
 }
 
 .menu-item a:hover {
@@ -56,69 +57,65 @@ a {
     display: none;
 }
 
-@media screen and (max-width: 800px) {
-    #navbar {
-        width: 30vw;
-        height: 100%;
-        background-color: black;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-    }
-    #logo {
-        height: 5vw;
-        position: absolute;
-        top: 10%;
-        width: auto;
-        right: 8%;
-    }
-    #logo > img {
-        height: 100%;
-        width: auto;
-    }
-    #title {
-        font-size: 1.3vw;
-        position: absolute;
-        color: white;
-        font-family: 'Montserrat', sans-serif;
-        top: 18%;
-    }
-    #menu {
-        top: 0%;
-        flex-direction: column;
-        position: absolute;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-    .menu-item {
-        font-size: 2.5vw;
-        font-family: 'Montserrat', sans-serif;  
-        font-weight: bold;
-        text-align: center;
-        margin: 0 10px;
-        padding: 8px;
-    }
-    a {
-        text-decoration: none;
-        color: white;
-    }
-    .menu-item a:hover {
-        color: rgb(145, 182, 229);
-    }
-    #toggleButton {
-        display: inline-block;
-        background-color: black;
-        color: white;
-        border: none;
-        text-decoration: none;
-        font-family: 'Monteserrat', sans-serif;
-        position: fixed;
-        width: 6vw;
-        left: 30%;
-        height: 6vw;
-        top: 0%;
-        z-index: 1;
-    }
-    
+#title-mobile {
+    background-color: black;
+    top: 0%;
+    width: 100%;
+    height: 20vw;
+    font-size: 2vw;
+    text-align: left;
+    position: fixed;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    z-index: 25;
 }
+#title-mobile h1 {
+    top: 12%;
+    left: 5%;
+    position: absolute;
+}
+#menu-mobile {
+    width: 50%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.80;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    flex-direction: column;
+    position: absolute;
+    display: flex;
+    transition: 1s;
+    z-index: 24;
+}
+#menu-item-wrapper-mobile {
+    position: absolute;
+    top: 25vw;
+    transition: 1s;
+}
+.menu-item-mobile {
+    font-size: 3vw;
+    font-family: 'Montserrat', sans-serif;  
+    font-weight: bold;
+    text-align: left;
+    margin: 0 20px;
+    padding: 20px;
+}
+.menu-item-mobile a:hover {
+    color: rgb(145, 182, 229);
+}
+#toggleButton {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    border: none;
+    text-decoration: none;
+    font-family: 'Monteserrat', sans-serif;
+    position: fixed;
+    width: 20vw;
+    height: 20vw;
+    top: 0%;
+    right: 0px;
+    z-index: 26;
+}
+    
