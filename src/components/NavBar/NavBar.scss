@@ -1,3 +1,7 @@
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 #navbar {
     background-color: black;
     position: absolute;
@@ -81,7 +85,7 @@ a {
     opacity: 0.80;
     position: fixed;
     top: 0px;
-    right: 0px;
+    right: -50%;
     flex-direction: column;
     position: absolute;
     display: flex;

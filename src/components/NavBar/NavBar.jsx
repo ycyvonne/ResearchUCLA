@@ -21,9 +21,19 @@ class NavBar extends Component {
         window.removeEventListener('resize', this.handleWindowSizeChange);
     }
 
+    moveMenu = () => {
+        if (this.state.toggled) {
+            document.getElementById("menu-mobile").style.transform = "translateX(-100%)";
+        }
+        else {
+            document.getElementById("menu-mobile").style.transform = "translateX(0%)";
+        }
+    }
+
     handleWindowSizeChange = () => {
         this.setState({
-            width: window.innerWidth
+            width: window.innerWidth,
+            toggled: true,
         })
     };
 
@@ -33,21 +43,14 @@ class NavBar extends Component {
         }, () => {
             console.log('state was changed!', this.state.toggled)
         })
-
-        if (this.state.width <= 760) {
-            if (!this.state.toggled) {
-                document.getElementById("menu-mobile").style.width = "50%";
-            }
-            else {
-                document.getElementById("menu-mobile").style.width = "0";
-            }
+        if (this.state.width <= 800) {
+            this.moveMenu();
         }
-
     }
 
     render() {
         const { width } = this.state;
-        const isMobile = width <= 760;
+        const isMobile = width <= 800;
         if (isMobile) {
             return (
                 <Router>
@@ -65,7 +68,7 @@ class NavBar extends Component {
                             </Link>
                         </div>
                         <div id="menu-mobile">
-                            {this.state.toggled && <div id="menu-item-wrapper-mobile">
+                            <div id="menu-item-wrapper-mobile">
                                 <div className="menu-item-mobile">
                                     <Link to="/research">RESEARCH</Link>
                                 </div>
@@ -78,14 +81,13 @@ class NavBar extends Component {
                                 <div className="menu-item-mobile">
                                     <Link to="/news">NEWS</Link>
                                 </div>
-
-                            </div> }
-                        {!this.state.toggled}
+                            </div>
                         </div>
+                        
                     </div>
                 </Router>
-                    );
-                }
+            );
+        }
         else {
             return (
                 <Router>
