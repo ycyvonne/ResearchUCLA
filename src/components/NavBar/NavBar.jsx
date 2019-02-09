@@ -24,9 +24,11 @@ class NavBar extends Component {
     moveMenu = () => {
         if (this.state.toggled) {
             document.getElementById("menu-mobile").style.transform = "translateX(-100%)";
+            document.getElementById("toggleButton").style.transform = "rotate(90deg)";
         }
         else {
             document.getElementById("menu-mobile").style.transform = "translateX(0%)";
+            document.getElementById("toggleButton").style.transform = "rotate(0deg)";
         }
     }
 
