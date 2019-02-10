@@ -1,6 +1,15 @@
-  
+.filter {
+  background-color: gray;
+  min-height: 80vh;
+  width: 300px;
+}
+.clear {
+  font-size: calc(5px + 1vmin);
+  font-weight: 600;
+  color: deepskyblue
+}
   .header-title {
-    font-size: calc(8px + 1vmin);
+    font-size: calc(10px + 1vmin);
     font-weight: 600;
     margin-left: 1rem;
   }
@@ -8,7 +17,7 @@
   .wrapper {
     background-color: white;
     min-height: 50vh;
-    width: 300px;
+    width: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,13 +33,14 @@
 
   }
   .icon {
-    margin-left: 1rem;
+    margin-left: 3rem;
   }
   .list {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    background-color: transparent;
   }
   .list-item-container {
     height: 35px;
@@ -38,4 +48,3 @@
     align-items: center;
   
   }
-  
