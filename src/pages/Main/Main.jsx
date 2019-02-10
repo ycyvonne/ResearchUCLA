@@ -7,7 +7,6 @@ import NewsPage from '../../pages/NewsPage/NewsPage';
 import ResourcesPage from '../../pages/ResourcesPage/ResourcesPage';
 import {BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-
 class Main extends Component {
     render() {
         return (
