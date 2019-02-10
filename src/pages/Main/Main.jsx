@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './style.scss';
 import NavBar from '../../components/NavBar/NavBar';
-import Faculty from '../../pages/Faculty/Faculty';
-import Research from '../../pages/Research/Research';
-import News from '../../pages/News/News';
-import Resources from '../../pages/Resources/Resources';
+import FacultyPage from '../../pages/FacultyPage/FacultyPage';
+import ResearchPage from '../../pages/ResearchPage/ResearchPage';
+import NewsPage from '../../pages/NewsPage/NewsPage';
+import ResourcesPage from '../../pages/ResourcesPage/ResourcesPage';
 import {BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
@@ -14,10 +14,10 @@ class Main extends Component {
             <Router>
                 <div id="main-wrapper">
                     <NavBar></NavBar>
-                    <Route path="/research" component = {Research} />
-                    <Route path="/faculty" component = {Faculty} />
-                    <Route path="/news" component = {News} />
-                    <Route path="/resources" component = {Resources} />
+                    <Route path="/research" component = {ResearchPage} />
+                    <Route path="/faculty" component = {FacultyPage} />
+                    <Route path="/news" component = {NewsPage} />
+                    <Route path="/resources" component = {ResourcesPage} />
                     
                 </div>
             </Router>
