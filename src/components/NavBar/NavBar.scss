@@ -34,7 +34,7 @@ body {
 
 #menu {
     position: absolute;
-    bottom: 15px;
+    bottom: 10px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -53,7 +53,7 @@ a {
     opacity: 1;
 }
 
-.menu-item a:hover {
+.menu-item p:hover {
     color: rgb(145, 182, 229);
 }
 
@@ -102,10 +102,11 @@ a {
     font-family: 'Montserrat', sans-serif;  
     font-weight: bold;
     text-align: left;
-    margin: 0 20px;
-    padding: 20px;
+    margin: 0 40px;
+    padding: 5px;
 }
-.menu-item-mobile a:hover {
+
+.menu-item-mobile p:hover {
     color: rgb(145, 182, 229);
 }
 #toggleButton {

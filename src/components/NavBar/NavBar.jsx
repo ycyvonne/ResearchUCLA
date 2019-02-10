@@ -55,13 +55,44 @@ class NavBar extends Component {
         const isMobile = width <= 800;
         if (isMobile) {
             return (
-                <Router>
-                    <div id="navbar-wrapper">
-                        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"></link>
-                        <button id="toggleButton" onClick={this.toggleMenu}>
-                            <i class="fas fa-bars fa-2x"></i>
-                        </button>
-                        <div id="title-mobile">
+                <div id="navbar-wrapper">
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"></link>
+                    <button id="toggleButton" onClick={this.toggleMenu}>
+                        <i class="fas fa-bars fa-2x"></i>
+                    </button>
+                    <div id="title-mobile">
+                        <style>@import url('https://fonts.googleapis.com/css?family=Montserrat');</style>
+                        <Link to="/">
+                            <h1>ARTIFICIAL INTELLIGENCE + <br />
+                                MACHINE LEARNING
+                            </h1>
+                        </Link>
+                    </div>
+                    <div id="menu-mobile">
+                        <div id="menu-item-wrapper-mobile">
+                            <div className="menu-item-mobile">
+                                <Link to="/research"><p>RESEARCH</p></Link>
+                            </div>
+                            <div className="menu-item-mobile">
+                                <Link to="/faculty"><p>FACULTY</p></Link>
+                            </div>
+                            <div className="menu-item-mobile">
+                                <Link to="/resources"><p>RESOURCES</p></Link>
+                            </div>
+                            <div className="menu-item-mobile">
+                                <Link to="/news"><p>NEWS</p></Link>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            );
+        }
+        else {
+            return (
+                <div id="navbar-wrapper">
+                    <div id="navbar">
+                        <div id="title">
                             <style>@import url('https://fonts.googleapis.com/css?family=Montserrat');</style>
                             <Link to="/">
                                 <h1>ARTIFICIAL INTELLIGENCE + <br />
@@ -69,66 +100,30 @@ class NavBar extends Component {
                             </h1>
                             </Link>
                         </div>
-                        <div id="menu-mobile">
-                            <div id="menu-item-wrapper-mobile">
-                                <div className="menu-item-mobile">
-                                    <Link to="/research">RESEARCH</Link>
-                                </div>
-                                <div className="menu-item-mobile">
-                                    <Link to="/faculty">FACULTY</Link>
-                                </div>
-                                <div className="menu-item-mobile">
-                                    <Link to="/resources">RESOURCES</Link>
-                                </div>
-                                <div className="menu-item-mobile">
-                                    <Link to="/news">NEWS</Link>
-                                </div>
+                        <div id="logo">
+                            <img src={uclaLogo} />
+                        </div>
+                        <div id="menu">
+                            <div className="menu-item">
+                                <Link to="/research"><p>RESEARCH</p></Link>
+                            </div>
+                            <div className="menu-item">
+                                <Link to="/faculty"><p>FACULTY</p></Link>
+                            </div>
+                            <div className="menu-item">
+                                <Link to="/resources"><p>RESOURCES</p></Link>
+                            </div>
+                            <div className="menu-item">
+                                <Link to="/news"><p>NEWS</p></Link>
                             </div>
                         </div>
-                        
+
                     </div>
-                </Router>
+                </div>
+
             );
         }
-        else {
-            return (
-                <Router>
-                        <div id="navbar-wrapper">
-                            <div id="navbar">
-                                <div id="title">
-                                    <style>@import url('https://fonts.googleapis.com/css?family=Montserrat');</style>
-                                    <Link to="/">
-                                        <h1>ARTIFICIAL INTELLIGENCE + <br />
-                                            MACHINE LEARNING
-                            </h1>
-                                    </Link>
-                                </div>
-                                <div id="logo">
-                                    <img src={uclaLogo} />
-                                </div>
-                                <div id="menu">
-                                    <div className="menu-item">
-                                        <Link to="/research">RESEARCH</Link>
-                                    </div>
-                                    <div className="menu-item">
-                                        <Link to="/faculty">FACULTY</Link>
-                                    </div>
-                                    <div className="menu-item">
-                                        <Link to="/resources">RESOURCES</Link>
-                                    </div>
-                                    <div className="menu-item">
-                                        <Link to="/news">NEWS</Link>
-                                    </div>
-                                    {/* <Route path="/research" component={Research} /> */}
-                                    {/* <Route path="/faculty" component={Faculty} /> */}
-                                </div>
+    }
+}
 
-                            </div>
-                        </div>
-                    </Router>
-                    );
-                }
-            }
-        }
-        
-        export default NavBar;
+export default NavBar;
