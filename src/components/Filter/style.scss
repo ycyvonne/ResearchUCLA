@@ -1,28 +1,54 @@
+@import '~pretty-checkbox/src/pretty-checkbox.scss';
+
 .filter {
-  background-color: gray;
-  min-height: 80vh;
-  width: 300px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: darkgray;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.dropdown{
+  position: absolute;
+  top: 82px;  
+}
+.filter-group {
+  width: 350px; 
+  display: flex;
+  flex-direction: column;
 }
 .clear {
   font-size: calc(5px + 1vmin);
   font-weight: 600;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
   color: deepskyblue
 }
+.clear:hover {
+  background-color: black; /* Green */
+  color: white;
+  cursor: pointer;
+}
   .header-title {
-    font-size: calc(10px + 1vmin);
+    font-size: calc(20px + 1vmin);
     font-weight: 600;
     margin-left: 1rem;
   }
-  
   .wrapper {
+    border-style: solid;
+    border-width: 2px;
+    border-color: darkgray;
     background-color: white;
     min-height: 50vh;
-    width: 250px;
+    width: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
   .header {
     color:black;
     height: 40px;
@@ -35,6 +61,9 @@
   .icon {
     margin-left: 3rem;
   }
+  .icon:hover {
+    cursor: pointer;
+  }
   .list {
     width: 100%;
     display: flex;
@@ -46,5 +75,4 @@
     height: 35px;
     flex-direction: row;
     align-items: center;
-  
   }

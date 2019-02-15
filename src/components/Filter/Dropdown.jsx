@@ -9,23 +9,10 @@ export default class Dropdown extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-          listOpen: this.props.filterVisible,
-          headerTitle: "RESEARCH AREAS",
-          clearAll: false,
           options: options,
         };
-        this.addSelectedItem = this.addSelectedItem.bind(this);
-        this.toggleList = this.toggleList.bind(this);
-        this.addFilter = this.addFilter.bind(this);
       }
 
-    toggleList() {
-        this.setState(prevState => ({
-            listOpen: !prevState.listOpen
-          }))
-          this.addFilter();
-
-    }
     createCheckbox = option => (
         <Checkbox
                 label={option.category}
@@ -39,9 +26,8 @@ export default class Dropdown extends React.Component {
     createCheckboxes = () => (
         this.state.options.map(this.createCheckbox)
     )
-    addSelectedItem(item, selected) {
-        var i;
-        for ( i =0; i < options.length; i++ ) {
+    addSelectedItem = (item, selected) => {
+        for (let i =0; i < options.length; i++ ) {
                 if (options[i].category === item) {
                     options[i].selected = selected;
                 }
@@ -49,23 +35,24 @@ export default class Dropdown extends React.Component {
         this.setState({
             options: options
         })
+        this.addFilter();
     }
-    clearAll() {
+    clearAll = () => {
         const newOptions = [...this.state.options];
-        var i;
-        for ( i =0; i < newOptions.length; i++ ) {
+        for (let i =0; i < newOptions.length; i++ ) {
                     newOptions[i].selected = false
         }
         this.setState({
             options: newOptions
         })
+        this.props.loadFilteredOptions([])
 
     }
 
     addFilter(){
-        var filterList = this.state.options
-        var array = []
-        for ( var i =0; i < filterList.length; i++ ) {
+        let filterList = this.state.options
+        let array = []
+        for ( let i =0; i < filterList.length; i++ ) {
             if (filterList[i].selected) {
                 array.push(filterList[i].category)
             }
@@ -74,18 +61,10 @@ export default class Dropdown extends React.Component {
     }
 
     render() {
-        const{ listOpen, headerTitle, clearAll } = this.state
         return (
-            <div className="filter">
-            <FontAwesomeIcon className="icon"icon={faTimesCircle} size="2x" onClick={() => this.toggleList()} />
-           {  listOpen && (
+            <div className="dropdown" >
+           {  this.props.visible === this.props.label && (
              <div className="wrapper">
-                <div className="header">  
-                    <div className="header-title" >
-                    {headerTitle}
-                    </div>
-                    <FontAwesomeIcon className="icon"icon={faTimesCircle} size="1x" onClick={() => this.toggleList()} />
-                </div>
                 <ul className="list" >
                     {this.createCheckboxes()}
                 </ul>
