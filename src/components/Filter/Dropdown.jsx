@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import './style.scss';
 import Checkbox from './Checkbox'
 
-const options = [{category:'Algorithms', selected: false}, {category:'Quantum Computing', selected: false}, {category:'Wow', selected: false}, {category:'ML', selected: false}, {category:'CV', selected: false},{category:'Cooking', selected: false},{category:'Theory', selected: false},]
+
 export default class Dropdown extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-          options: options,
+          options: this.props.options,
+          width: window.width
         };
       }
 
+    componentDidMount() {
+      //  this.toggleMenu();
+        window.addEventListener("resize", this.handleWindowSizeChange);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleWindowSizeChange);
+    }
+
+    handleWindowSizeChange = () => {
+        this.setState({
+            width: window.innerWidth,
+        })
+    };
     createCheckbox = option => (
         <Checkbox
                 label={option.category}
@@ -27,13 +40,13 @@ export default class Dropdown extends React.Component {
         this.state.options.map(this.createCheckbox)
     )
     addSelectedItem = (item, selected) => {
-        for (let i =0; i < options.length; i++ ) {
-                if (options[i].category === item) {
-                    options[i].selected = selected;
+        for (let i =0; i < this.props.options.length; i++ ) {
+                if (this.props.options[i].category === item) {
+                    this.props.options[i].selected = selected;
                 }
         }
         this.setState({
-            options: options
+            options: this.props.options
         })
         this.addFilter();
     }
@@ -61,10 +74,12 @@ export default class Dropdown extends React.Component {
     }
 
     render() {
+    const { width } = this.state;
+    const isMobile = width <= 800;
         return (
-            <div className="dropdown" >
+            <div className= { isMobile ? "mobile-dropdown":"dropdown"} >
            {  this.props.visible === this.props.label && (
-             <div className="wrapper">
+             <div className= "dropdown-wrapper">
                 <ul className="list" >
                     {this.createCheckboxes()}
                 </ul>
