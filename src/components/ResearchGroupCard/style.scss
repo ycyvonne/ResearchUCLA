@@ -1,23 +1,120 @@
-.App {
-  text-align: center;
+$card-header-font: 24px;
+$card-header-height: 64px;
+
+.card{
+    text-align: center;
+    font-family: 'Futura', sans-serif;
+    background-color: #fafafa;
+    border-style: solid;
+    border-color: #cecece;
+    margin-top: 10px;
+    height: 450px;
+    width: 20%;
+    min-width: 20%;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.card_professor{
+    text-align: left;
+    color: #5dadf7;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 16px;
+    height: 5%;
+    margin-top: 20px;
+    overflow-y: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #61dafb;
+.card_research-group{
+    text-align: left;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 2px;
+    margin-bottom: 15px;
+    font-size: $card-header-font;
+   height: $card-header-height;
+   text-overflow: ellipsis;
+   overflow-y: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.card_content{
+    text-align: left;
+    font-weight: 100;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 2px;
+    font-size: 14px;
+    height: 50%;
+    color: #888888;
+    text-overflow: ellipsis;
 }
+
+.card_courses{
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 100;
+    color: #888888;
+}
+.card_courses p{
+  margin:0px;
+    color: #5dadf7;
+    font-size: 14px;
+}
+
+.card hr {
+    border: none;
+    height: 3px;
+    background-color: #cecece; 
+}
+
+p { 
+  margin:0px;
+}
+
+.card_courses li:before {
+  content: "\002b";
+}
+
+.card_courses ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+}
+
+
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .card{
+        width: 40%;
+    }
+} 
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .card{
+        width: 40%;
+    }
+} 
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .card{
+        width: 30%;
+    }
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .card{
+        width: 20%;
+    }
+} 
+
