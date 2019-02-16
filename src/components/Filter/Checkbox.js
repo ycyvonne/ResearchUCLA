@@ -16,8 +16,12 @@ export default class Checkbox extends React.Component {
         
         return(
             <div className="list-item-container">
-            <input type="checkbox" label={this.label} checked={this.props.selected} onChange={this.handleSelectItem} />
-            <label htmlFor={this.label} onClick={ () => this.handleSelectItem()}> {this.label} </label>
+              <div className="pretty p-default p-curve p-fill">
+                <input type="checkbox" label={this.label} checked={this.props.selected} onChange={this.handleSelectItem} />
+                  <div class="state">
+                    <label>{this.label}</label>
+                  </div>
+              </div>
             </div>
           
         )
