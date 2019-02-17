@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './style.scss';
-// import '../../styles/researchgroupcard.css'
 
 class ResearchGroupCard extends Component {
   render () {
