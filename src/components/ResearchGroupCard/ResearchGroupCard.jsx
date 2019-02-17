@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style.scss';
+import { makeCourseList } from '../../helpers'
 
 class ResearchGroupCard extends Component {
   render () {
@@ -18,7 +19,7 @@ class ResearchGroupCard extends Component {
 			<div className="card_courses">
 				<p>Looking For:</p>
 				<ul>
-					{this.props.courses.map((course)=> <li> {course} </li>)}
+					{makeCourseList(this.props.courses).map((course)=> <li> {course} </li>)}
 				</ul>
 			</div>
 		</div>

@@ -8,3 +8,10 @@ export function formatContent (x){
 export function makeUppercase(x){
     return x.toString().toUpperCase()
 }
+
+export function makeCourseList(x){
+    if(x.length>3)
+        return x.slice(0,3);
+    else
+        return x;
+}
