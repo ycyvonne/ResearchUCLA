@@ -1,6 +1,6 @@
 export function formatContent (x){
-    if(x.toString().length>400)
-        return x.toString().trim().slice(0,400).concat("...")
+    if(x.toString().length>350)
+        return x.toString().trim().slice(0,350).concat("...")
     else
         return x.toString()
 }

@@ -63,8 +63,6 @@ class ResearchGroupCardList extends Component {
 		}
 	}
 
-	/* FORMATTING YET TO BE DONE */
-
   render () {
     return (
     	<div className="card-list">
