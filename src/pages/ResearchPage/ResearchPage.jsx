@@ -39,7 +39,8 @@ class ResearchPage extends Component {
     render() {
         return (
             <div id="ResourcesPage-wrapper">
-            <Filter loadFilteredOptions={this.loadFilteredOptions} />
+            <Filter 
+            loadFilteredOptions={this.loadFilteredOptions} />
                      <div className="research-content-wrapper">
                      <ul>
                      {this.createFilterables()}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './style.scss';
 
-export default class Checkbox extends React.Component {
+export default class Checkbox extends Component {
     constructor(props){
         super(props)
         this.label=this.props.label;
@@ -17,7 +17,7 @@ export default class Checkbox extends React.Component {
         return(
             <div className="list-item-container">
               <div className="pretty p-default p-curve p-fill">
-                <input type="checkbox" label={this.label} checked={this.props.selected} onChange={this.handleSelectItem} />
+                <input type="checkbox" className="check" label={this.label} checked={this.props.selected} onChange={this.handleSelectItem} />
                   <div class="state">
                     <label>{this.label}</label>
                   </div>

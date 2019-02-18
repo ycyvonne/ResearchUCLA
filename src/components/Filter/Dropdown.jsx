@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './style.scss';
 import Checkbox from './Checkbox'
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-
-export default class Dropdown extends React.Component {
+export default class Dropdown extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -13,7 +14,6 @@ export default class Dropdown extends React.Component {
       }
 
     componentDidMount() {
-      //  this.toggleMenu();
         window.addEventListener("resize", this.handleWindowSizeChange);
     }
 
@@ -77,15 +77,18 @@ export default class Dropdown extends React.Component {
     const { width } = this.state;
     const isMobile = width <= 800;
         return (
-            <div className= { isMobile ? "mobile-dropdown":"dropdown"} >
-           {  this.props.visible === this.props.label && (
+            <div className= { this.props.visible === this.props.label ? "opacity-visible": "opacity-invisible" }
+            onMouseOver={ () => this.props.toggleList(this.props.label)} onMouseOut={ () => this.props.toggleList('') }
+            >
+            <div className= { isMobile ? "mobile-dropdown":"dropdown" } >
              <div className= "dropdown-wrapper">
+        { isMobile && <FontAwesomeIcon className= "icon" icon={faTimesCircle} size="1x" onClick={() => this.props.toggleList('')} /> }
                 <ul className="list" >
                     {this.createCheckboxes()}
                 </ul>
             <div className="clear" onClick={() => this.clearAll()}> Clear all </div>
-            </div> )
-           }
+            </div> 
+            </div>
             </div>
         )
 
