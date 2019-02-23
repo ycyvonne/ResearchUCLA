@@ -92,28 +92,28 @@ p {
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .card{
-        width: 80%;
+        width: 100%;
     }
 } 
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     .card{
-        width: 80%;
+        width: 45%;
     }
 } 
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+/* Medium devices (landscape tablets, 768px(868) and up) */
+@media only screen and (min-width: 868px) {
     .card{
-        width: 40%;
+        width: 30%;
     }
 } 
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+/* Large devices (laptops/desktops, 992px(1296) and up) */
+@media only screen and (min-width: 1296px) {
     .card{
-        width: 21.5%;
+        width: 23%;
     }
 } 
 
