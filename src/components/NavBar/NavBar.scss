@@ -1,0 +1,138 @@
+@import "../../styles/vars.scss";
+@import "../../styles/fonts.scss";
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+#navbar {
+    background-color: black;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100px;
+    width: 100%;
+}
+
+#title {
+    position: absolute;
+    color: white;
+    font-family: $header-font, sans-serif;
+    top: 8%;
+    left: 2%;
+    font-size: 8pt;
+}
+
+#logo {
+    position: absolute;
+    top: 22%;
+    right: 3%;
+    height: auto;
+    width: auto;
+}
+
+#logo > img {
+    height: 50px;
+    width: auto;
+}
+
+#menu {
+    position: absolute;
+    bottom: -6%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-item {
+    font-family: $header-font, sans-serif; 
+    font-weight: bold;
+    text-align: center;
+    margin: 0 6px;
+    font-size: 12pt;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    opacity: 1;
+}
+
+.menu-item p:hover {
+    color: $light-blue;
+}
+
+#toggleButton {
+    display: none;
+}
+
+/***************************************/
+
+#title-mobile {
+    background-color: black;
+    top: 0%;
+    width: 100%;
+    height: 14vw;
+    font-size: 1.5vw;
+    text-align: left;
+    position: fixed;
+    color: white;
+    font-family: $header-font, sans-serif;
+    z-index: 25;
+}
+#title-mobile h1 {
+    top: 12%;
+    left: 5%;
+    position: absolute;
+}
+#menu-mobile {
+    width: 50%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.80;
+    position: fixed;
+    top: 0px;
+    right: -50%;
+    flex-direction: column;
+    position: absolute;
+    display: flex;
+    transition: 1s;
+    z-index: 24;
+}
+#menu-item-wrapper-mobile {
+    position: absolute;
+    top: 20vw;
+    left: 1vw;
+    transition: 1s;
+}
+.menu-item-mobile {
+    font-size: 3vw;
+    font-family: $header-font, sans-serif;  
+    font-weight: bold;
+    text-align: left;
+    margin: 0 40px;
+    padding: 5px;
+}
+
+.menu-item-mobile p:hover {
+    color: $light-blue;
+}
+
+#toggleButton {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    border: none;
+    text-decoration: none;
+    outline: none;
+    position: fixed;
+    width: 9vw;
+    height: 9vw;
+    top: 2.5vw;
+    right: 2vw;
+    z-index: 26;
+    cursor: pointer;
+    transition: 1s;
+}
+
+
+    
