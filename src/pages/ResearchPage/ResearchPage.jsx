@@ -6,35 +6,64 @@ class ResearchPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-          options : options
+          options : options,
+          filters: {'Research Area': [], 'Impact Area':[], 'Classes/Skills':[]},
         }
         this.loadFilteredOptions=this.loadFilteredOptions.bind(this);
       }
-    loadFilteredOptions(filters) {
+    loadFilteredOptions(type,filters) {
       let array = [];
-        if(filters.length === 0) {
-          array = options
+      let full = this.state.filters;
+      let change = this.state.filters[type]
+      for(let c = 0; c < filters.length; c++ ) {
+            change[c] = filters[c]
+      }
+      full[type] = change.slice(0, filters.length)
+      this.setState({
+        filters: full
+      });
+        if (this.state.filters['Research Area'].length === 0 && this.state.filters['Impact Area'].length === 0 && this.state.filters['Classes/Skills'].length === 0) {
+          this.setState({
+            options: options
+          })
+          return;
         }
+       
         for (let i =0; i < options.length; i++) {
-            for (let k =0; k < filters.length; k++) {
-              if(options[i] === filters[k])
-                array.push(options[i]);
+            for (let c =0; c < this.state.filters['Research Area'].length; c++) {
+              if(options[i] === this.state.filters['Research Area'][c])
+               { array.push(options[i]);
+               
+               }
+            }
+            for (let k =0; k < this.state.filters['Impact Area'].length; k++) {
+              if(options[i] === this.state.filters['Impact Area'][k])
+                {array.push(options[i]);
+                  
+                }
+            }
+            for (let r =0; r < this.state.filters['Classes/Skills'].length; r++) {
+              if(options[i] === this.state.filters['Classes/Skills'][r])
+               { array.push(options[i]);
+                
+               }
             }
         }
+        
         this.setState({
           options: array
         })
     
     }
     
-    createFilters = option => (
+    createCard = option => (
       <li className="list-item-container" key={option}>
         {option}
       </li>
     )
     
-    createFilterables = (options) => (
-      this.state.options.map(this.createFilters)
+    createCards = (options) => (
+      this.state.options.map(this.createCard)
     )
     render() {
         return (
@@ -43,7 +72,7 @@ class ResearchPage extends Component {
             loadFilteredOptions={this.loadFilteredOptions} />
                      <div className="research-content-wrapper">
                      <ul>
-                     {this.createFilterables()}
+                     {this.createCards()}
                      </ul>
                      </div>
             </div>

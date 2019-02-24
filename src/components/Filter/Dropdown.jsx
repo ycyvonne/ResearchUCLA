@@ -58,7 +58,7 @@ export default class Dropdown extends Component {
         this.setState({
             options: newOptions
         })
-        this.props.loadFilteredOptions([])
+        this.props.loadFilteredOptions(this.props.label,[])
 
     }
 
@@ -70,7 +70,7 @@ export default class Dropdown extends Component {
                 array.push(filterList[i].category)
             }
     }
-        this.props.loadFilteredOptions(array)
+        this.props.loadFilteredOptions(this.props.label,array)
     }
 
     render() {
@@ -78,11 +78,11 @@ export default class Dropdown extends Component {
     const isMobile = width <= 800;
         return (
             <div className= { this.props.visible === this.props.label ? "opacity-visible": "opacity-invisible" }
-            onMouseOver={ () => this.props.toggleList(this.props.label)} onMouseOut={ () => this.props.toggleList('') }
+            onMouseOver={ !isMobile ? () => this.props.toggleList(this.props.label) : null} onMouseOut={ () => this.props.toggleList('') }
             >
             <div className= { isMobile ? "mobile-dropdown":"dropdown" } >
              <div className= "dropdown-wrapper">
-        { isMobile && <FontAwesomeIcon className= "icon" icon={faTimesCircle} size="1x" onClick={() => this.props.toggleList('')} /> }
+        { isMobile && <FontAwesomeIcon className= "icon" icon={faTimesCircle} size="1x" onClick={ () => this.props.toggleListTitle('')} /> }
                 <ul className="list" >
                     {this.createCheckboxes()}
                 </ul>

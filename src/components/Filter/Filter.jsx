@@ -3,14 +3,9 @@ import React, { Component } from 'react';
 import Dropdown from './Dropdown'
 import './style.scss';
 
-const areas = ['Research Area', 'Impact Area', 'Classes/Skills']
-
-const options1 = [{category:'Algorithms', selected: false}, {category:'Quantum Computing', selected: false}, {category:'Wow', selected: false}, {category:'ML', selected: false}, {category:'CV', selected: false},{category:'Cooking', selected: false},{category:'Theory', selected: false},]
-const options2 = [{category:'Scientific Computing', selected: false}, {category:'Quantum Computing', selected: false}, {category:'Wow', selected: false}, {category:'ML', selected: false}, {category:'CV', selected: false},{category:'Cooking', selected: false},{category:'Theory', selected: false},]
-const options3 = [{category:'CS32', selected: false}, {category:'Quantum Computing', selected: false}, {category:'Wow', selected: false}, {category:'ML', selected: false}, {category:'CV', selected: false},{category:'Cooking', selected: false},{category:'Theory', selected: false},]
-const allOptions = 
-    {'Research Area': options1, 'Impact Area' :options2, 'Classes/Skills': options3}
-    
+const researchArea = ['Algorithms', 'Quantum Computing', 'Surfing', 'Cooking', 'Machine Learning', 'Cycling', 'Rowing', 'Crying'];    
+const impactArea = ['Treeing', 'Eating', 'Sewing', 'Foundations', 'Medical'];
+const classSkill = ['Walking', 'Bowing', 'CS32', 'CS111', 'Linear Algebra', 'Graphic Design'];
 export default class Filter extends React.Component {
     constructor(props) {
         super(props);
@@ -19,7 +14,11 @@ export default class Filter extends React.Component {
             listOpenList: '',
             width: window.width
         };
+        this.allOptions = 
+        {'Research Area': this.createDicts(researchArea), 'Impact Area': this.createDicts(impactArea), 
+        'Classes/Skills': this.createDicts(classSkill)};
         this.toggleList=this.toggleList.bind(this);
+        this.toggleListTitle=this.toggleListTitle.bind(this);
     }
     componentDidMount() {
           window.addEventListener("resize", this.handleWindowSizeChange);
@@ -34,6 +33,14 @@ export default class Filter extends React.Component {
         })
     };
 
+    createDicts(area) {
+        let arrayOfDict = []
+        for (let i = 0 ; i < area.length ; i++) {
+            arrayOfDict.push({category:area[i], selected: false});
+        }
+        return arrayOfDict;
+    }
+
     toggleListTitle(name) {
         this.setState({
             listOpenTitle: name
@@ -45,28 +52,30 @@ export default class Filter extends React.Component {
         })
     }
     createArea = option => (
-        <div className="filter-group" onMouseOver={() =>this.toggleListTitle(option)} onMouseOut={() =>this.toggleListTitle('')} >
+        <div className="filter-group" onMouseOver={() =>this.toggleListTitle(option)} onMouseOut={ () =>this.toggleListTitle('')} >
         <div className="header-title"> {option} </div>
         <div>
         <Dropdown
               loadFilteredOptions={this.props.loadFilteredOptions}
+              toggleListTitle={this.toggleListTitle}
               toggleList={this.toggleList}
               visible={this.state.listOpenTitle || this.state.listOpenList}
               label={option}
-              options={Object.values(allOptions[option])}
+              key={option}
+              options={Object.values(this.allOptions[option])}
         />
         </div>
         </div>
     )
 
     createFilter = () => (
-        (Object.keys(allOptions)).map(this.createArea)
+        (Object.keys(this.allOptions)).map(this.createArea)
     )
 
 render() {  
+    console.log(this.state.listOpenList, "list", this.state.listOpenTitle, "title")
     const { width } = this.state;
     const isMobile = width <= 800;
-    console.log(Object.keys(allOptions))
     return (
         <div className={ isMobile ? "mobile-filter" :"filter"}>
         {this.createFilter()}
