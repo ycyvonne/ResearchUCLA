@@ -80,15 +80,15 @@ export default class Dropdown extends Component {
             <div className= { this.props.visible === this.props.label ? "opacity-visible": "opacity-invisible" }
             onMouseOver={ !isMobile ? () => this.props.toggleList(this.props.label) : null} onMouseOut={ () => this.props.toggleList('') }
             >
-            <div className= { isMobile ? "mobile-dropdown":"dropdown" } >
-             <div className= "dropdown-wrapper">
-        { isMobile && <FontAwesomeIcon className= "icon" icon={faTimesCircle} size="1x" onClick={ () => this.props.toggleListTitle('')} /> }
-                <ul className="list" >
+              <div className= { isMobile ? "mobile-dropdown":"dropdown" } >
+                 <div className= "dropdown-wrapper">
+                  { isMobile && <FontAwesomeIcon className= "icon" icon={faTimesCircle} size="1x" onClick={ () => this.props.toggleListTitle('')} /> }
+                  <ul className="list" >
                     {this.createCheckboxes()}
-                </ul>
-            <div className="clear" onClick={() => this.clearAll()}> Clear all </div>
-            </div> 
-            </div>
+                  </ul>
+                  <div className="clear" onClick={() => this.clearAll()}> Clear all </div>
+                 </div> 
+              </div>
             </div>
         )
 

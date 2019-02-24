@@ -12,7 +12,6 @@ class ResearchPage extends Component {
         this.loadFilteredOptions=this.loadFilteredOptions.bind(this);
       }
     loadFilteredOptions(type,filters) {
-      let array = [];
       let full = this.state.filters;
       let change = this.state.filters[type]
       for(let c = 0; c < filters.length; c++ ) {
@@ -28,32 +27,34 @@ class ResearchPage extends Component {
           })
           return;
         }
-       
-        for (let i =0; i < options.length; i++) {
-            for (let c =0; c < this.state.filters['Research Area'].length; c++) {
-              if(options[i] === this.state.filters['Research Area'][c])
-               { array.push(options[i]);
-               
-               }
-            }
-            for (let k =0; k < this.state.filters['Impact Area'].length; k++) {
-              if(options[i] === this.state.filters['Impact Area'][k])
-                {array.push(options[i]);
-                  
-                }
-            }
-            for (let r =0; r < this.state.filters['Classes/Skills'].length; r++) {
-              if(options[i] === this.state.filters['Classes/Skills'][r])
-               { array.push(options[i]);
-                
-               }
+        this.loadCards();
+    }
+
+    loadCards() {
+      let array = [];
+      for (let i =0; i < options.length; i++) {
+        for (let c =0; c < this.state.filters['Research Area'].length; c++) {
+          if(options[i] === this.state.filters['Research Area'][c])
+           { array.push(options[i]);
+           
+           }
+        }
+        for (let k =0; k < this.state.filters['Impact Area'].length; k++) {
+          if(options[i] === this.state.filters['Impact Area'][k])
+            {array.push(options[i]);
+              
             }
         }
-        
-        this.setState({
-          options: array
-        })
-    
+        for (let r =0; r < this.state.filters['Classes/Skills'].length; r++) {
+          if(options[i] === this.state.filters['Classes/Skills'][r])
+           { array.push(options[i]);
+            
+           }
+        }
+    }
+      this.setState({
+        options: array
+      })
     }
     
     createCard = option => (
@@ -68,13 +69,12 @@ class ResearchPage extends Component {
     render() {
         return (
             <div id="ResourcesPage-wrapper">
-            <Filter 
-            loadFilteredOptions={this.loadFilteredOptions} />
-                     <div className="research-content-wrapper">
-                     <ul>
-                     {this.createCards()}
-                     </ul>
-                     </div>
+            <Filter loadFilteredOptions={this.loadFilteredOptions} />
+              <div className="research-content-wrapper">
+                <ul>
+                  {this.createCards()}
+                </ul>
+              </div>
             </div>
         );
     }

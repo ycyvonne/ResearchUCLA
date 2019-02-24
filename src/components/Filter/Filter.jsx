@@ -73,7 +73,6 @@ export default class Filter extends React.Component {
     )
 
 render() {  
-    console.log(this.state.listOpenList, "list", this.state.listOpenTitle, "title")
     const { width } = this.state;
     const isMobile = width <= 800;
     return (
