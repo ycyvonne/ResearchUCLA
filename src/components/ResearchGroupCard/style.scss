@@ -1,12 +1,14 @@
+@import "../../styles/vars.scss";
+@import "../../styles/fonts.scss";
+
 $card-header-font: 24px;
 $card-header-height: 64px;
 
 .card{
     text-align: center;
-    font-family: 'Futura', sans-serif;
-    background-color: #fafafa;
-    border-style: solid;
-    border-color: #cecece;
+    font-family: $body-font;
+    background-color: $gray-background;
+    border: medium solid $gray1;
     margin: 10px;
     height: 450px;
     min-width: 200px;
@@ -17,9 +19,9 @@ $card-header-height: 64px;
 
 .card_professor{
     text-align: left;
-    color: #5dadf7;
+    color: $light-blue;
     margin: auto 20px;
-    font-size: 16px;
+    font-size: 14px;
     height: 5%;
     margin-top: 20px;
     overflow-y: hidden;
@@ -41,7 +43,7 @@ $card-header-height: 64px;
     margin: 2px 20px;
     font-size: 14px;
     height: 50%;
-    color: #888888;
+    color: $gray2;
     text-overflow: ellipsis;
 }
 
@@ -50,18 +52,17 @@ $card-header-height: 64px;
   margin: 0px 20px 20px 20px;
   font-size: 14px;
   font-weight: 100;
-    color: #888888;
+    color: $gray2;
 }
 .card_courses p{
-    margin:0px;
-    color: #5dadf7;
+    color: $light-blue;
     font-size: 14px;
 }
 
 .card hr {
     border: none;
     height: 3px;
-    background-color: #cecece; 
+    background-color: $gray1; 
 }
 
 .card_courses li:before {
