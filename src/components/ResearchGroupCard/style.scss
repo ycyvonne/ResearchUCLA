@@ -18,8 +18,7 @@ $card-header-height: 64px;
 .card_professor{
     text-align: left;
     color: #5dadf7;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: auto 20px;
     font-size: 16px;
     height: 5%;
     margin-top: 20px;
@@ -29,10 +28,7 @@ $card-header-height: 64px;
 .card_research-group{
     text-align: left;
     font-weight: bold;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 2px;
-    margin-bottom: 15px;
+    margin: 2px 20px 15px 20px;
     font-size: $card-header-font;
    height: $card-header-height;
    text-overflow: ellipsis;
@@ -42,9 +38,7 @@ $card-header-height: 64px;
 .card_content{
     text-align: left;
     font-weight: 100;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 2px;
+    margin: 2px 20px;
     font-size: 14px;
     height: 50%;
     color: #888888;
@@ -53,14 +47,13 @@ $card-header-height: 64px;
 
 .card_courses{
   text-align: left;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  margin: 0px 20px 20px 20px;
   font-size: 14px;
   font-weight: 100;
     color: #888888;
 }
 .card_courses p{
-  margin:0px;
+    margin:0px;
     color: #5dadf7;
     font-size: 14px;
 }
