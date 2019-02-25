@@ -66,8 +66,9 @@ class ResearchGroupCardList extends Component {
   render () {
     return (
     	<div className="card-list">
-				{this.state.data.map(singleCard => 
+				{this.state.data.map((singleCard,i) => 
 					<ResearchGroupCard
+						key={i}
 						courses={singleCard.courses} 
 						professor={makeUppercase(singleCard.professor)}
 						content={formatContent(singleCard.content)}

@@ -25,7 +25,7 @@ class ResearchGroupCard extends Component {
 			<div className="card_courses">
 				<p>Looking For:</p>
 				<ul>
-					{makeCourseList(this.state.courses).map((course)=> <li> {course} </li>)}
+					{makeCourseList(this.state.courses).map((course, i)=> <li key={i}> {course} </li>)}
 				</ul>
 			</div>
 		</div>
