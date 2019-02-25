@@ -15,69 +15,70 @@ $card-header-height: 64px;
     overflow-wrap: break-word;
     overflow: hidden;
     text-overflow: ellipsis;
-}
 
-.card_professor{
-    text-align: left;
-    color: $light-blue;
-    margin: auto 20px;
-    font-size: 14px;
-    height: 5%;
-    margin-top: 20px;
-    overflow-y: hidden;
-}
+    hr {
+        border: none;
+        height: 3px;
+        background-color: $gray1; 
+    }
 
-.card_research-group{
-    text-align: left;
-    font-weight: bold;
-    margin: 2px 20px 15px 20px;
-    font-size: $card-header-font;
-   height: $card-header-height;
-   text-overflow: ellipsis;
-   overflow-y: hidden;
-}
+    .card-header{
+        text-align: left;
+        color: $bright-blue;
+        margin: auto 20px;
+        font-size: 14px;
+        height: 5%;
+        margin-top: 20px;
+        overflow-y: hidden;
+    }
 
-.card_content{
-    text-align: left;
-    font-weight: 100;
-    margin: 2px 20px;
-    font-size: 14px;
-    height: 50%;
-    color: $gray2;
+    .card-title{
+        text-align: left;
+        font-weight: bold;
+        margin: 2px 20px 15px 20px;
+        font-size: $card-header-font;
+    height: $card-header-height;
     text-overflow: ellipsis;
+    overflow-y: hidden;
+    }
+
+    .card-body{
+        text-align: left;
+        font-weight: 100;
+        margin: 2px 20px;
+        font-size: 14px;
+        height: 50%;
+        color: $gray2;
+        text-overflow: ellipsis;
+    }
+
+    .card-footer{
+        text-align: left;
+        margin: 0px 20px 20px 20px;
+        font-size: 14px;
+        font-weight: 100;
+        color: $gray2;
+
+        p{
+            color: $bright-blue;
+            font-size: 14px;
+        }
+        
+        li:before {
+            content: "\002b";
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0px;
+            margin: 0;
+        }
+
+    }
+
+    
+
 }
-
-.card_courses{
-  text-align: left;
-  margin: 0px 20px 20px 20px;
-  font-size: 14px;
-  font-weight: 100;
-    color: $gray2;
-}
-.card_courses p{
-    color: $light-blue;
-    font-size: 14px;
-}
-
-.card hr {
-    border: none;
-    height: 3px;
-    background-color: $gray1; 
-}
-
-.card_courses li:before {
-  content: "\002b";
-}
-
-.card_courses ul {
-    list-style: none;
-    padding: 0px;
-    margin: 0;
-}
-
-
-
-
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -106,7 +107,7 @@ $card-header-height: 64px;
         width: 22%;
         margin: 1%;
     }
-    .card_research-group {
+    .card-title {
         min-height: 80px;
     }
 } 

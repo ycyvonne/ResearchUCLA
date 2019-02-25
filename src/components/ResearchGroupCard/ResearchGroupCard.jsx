@@ -12,17 +12,17 @@ class ResearchGroupCard extends Component {
   render () {
     return (
     	<div className="card">
-			<div className="card_professor">
+			<div className="card-header">
 				<p>{this.state.professor}</p>
 			</div>
-			<div className="card_research-group">
+			<div className="card-title">
 				<p>{this.state.researchGroup}</p>
 			</div>
-			<div className="card_content">
+			<div className="card-body">
 				<p>{this.state.content}</p>
 			</div>
 			<hr />
-			<div className="card_courses">
+			<div className="card-footer">
 				<p>Looking For:</p>
 				<ul>
 					{makeCourseList(this.state.courses).map((course, i)=> <li key={i}> {course} </li>)}
