@@ -15,7 +15,7 @@ export default class Checkbox extends Component {
             <div className="list-item-container">
               <div className="pretty p-default p-curve p-fill">
                 <input type="checkbox" className="check" label={this.props.label} checked={this.props.selected} onChange={this.handleSelectItem} />
-                  <div class="state">
+                  <div className="state">
                     <label>{this.props.label}</label>
                   </div>
               </div>

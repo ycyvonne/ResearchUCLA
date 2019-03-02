@@ -6,13 +6,12 @@ import './style.scss';
 const researchArea = ['Algorithms', 'Quantum Computing', 'Surfing', 'Cooking', 'Machine Learning', 'Cycling', 'Rowing', 'Crying'];    
 const impactArea = ['Treeing', 'Eating', 'Sewing', 'Foundations', 'Medical'];
 const classSkill = ['Walking', 'Bowing', 'CS32', 'CS111', 'Linear Algebra', 'Graphic Design'];
-export default class Filter extends React.Component {
+export default class Filter extends Component {
     constructor(props) {
         super(props);
         this.state = {
             listOpenTitle: '',
             listOpenList: '',
-            width: window.width
         };
         this.allOptions = 
         {'Research Area': this.createDicts(researchArea), 'Impact Area': this.createDicts(impactArea), 
@@ -20,18 +19,6 @@ export default class Filter extends React.Component {
         this.toggleList=this.toggleList.bind(this);
         this.toggleListTitle=this.toggleListTitle.bind(this);
     }
-    componentDidMount() {
-          window.addEventListener("resize", this.handleWindowSizeChange);
-      }
-  
-    componentWillUnmount() {
-          window.removeEventListener('resize', this.handleWindowSizeChange);
-    }
-    handleWindowSizeChange = () => {
-        this.setState({
-            width: window.innerWidth,
-        })
-    };
 
     createDicts(area) {
         let arrayOfDict = []
@@ -73,10 +60,8 @@ export default class Filter extends React.Component {
     )
 
 render() {  
-    const { width } = this.state;
-    const isMobile = width <= 800;
     return (
-        <div className={ isMobile ? "mobile-filter" :"filter"}>
+        <div className="filter">
         {this.createFilter()}
         </div>
     )
