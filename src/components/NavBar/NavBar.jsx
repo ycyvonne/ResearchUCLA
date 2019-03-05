@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import uclaLogo from '../../ucla-samueli-logo-white.png';
 import './NavBar.scss';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-//import base from '../../base';
+import base from '../../base';
 
 class NavBar extends Component {
     constructor(props) {
@@ -16,15 +16,10 @@ class NavBar extends Component {
     componentDidMount() {
         this.toggleMenu();
         window.addEventListener("resize", this.handleWindowSizeChange);
-        // this.ref = base.syncState('/toggled', {
-        //     context: this,
-        //     state: 'toggled'
-        // });
     }
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.handleWindowSizeChange);
-        //base.removeBinding(this.ref);
     }
 
     moveMenu = () => {

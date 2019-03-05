@@ -1,34 +1,29 @@
 import React, { Component } from 'react';
 import './style.scss';
 import base from '../../base';
+import { timeout } from 'q';
 
 class ResearchGroupCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            professor: props.professor,
-            researchGroup: props.researchGroup,
-            content: props.content
+            card: props.card,
         }
     }
     componentDidMount() {
-        //const rg = this.state.researchGroup;
-        // this.ref = base.syncState(rg + '/professor', {
-        //     context: this,
-        //     state: 'professor'
-        // });
-        // this.ref = base.syncState(rg + '/researchGroup', {
-        //     context: this,
-        //     state: 'researchGroup'
-        // });
-        this.ref = base.syncState('/content', {
+        const rg = this.state.card.researchGroup;
+        this.ref = base.syncState(rg, {
             context: this,
-            state: 'content'
+            state: 'card',
         });
-        // this.ref = base.syncState('${params}/courses', {
-        //     context: this,
-        //     state: 'courses'
-        // });
+        setTimeout(()=>{
+            this.setState({
+                card: {
+                    ...this.state.card,
+                    //professor: 'Boohoo'
+                }
+            })
+        },1) // tricking the syncstate to add this new info
     }
     componentWillUnmount() {
         base.removeBinding(this.ref);
@@ -38,13 +33,13 @@ class ResearchGroupCard extends Component {
         return (
             <div className="card">
                 <div className="card_professor">
-                    <p>{this.props.professor}</p>
+                    <p>{this.state.card.professor}</p>
                 </div>
                 <div className="card_research-group">
-                    <p>{this.props.researchGroup}</p>
+                    <p>{this.state.card.researchGroup}</p>
                 </div>
                 <div className="card_content">
-                    <p>{this.state.content}</p>
+                    <p>{this.state.card.content}</p>
                 </div>
                 
                 {/* <div className="card_courses">
