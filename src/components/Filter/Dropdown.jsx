@@ -9,11 +9,11 @@ export default class Dropdown extends Component {
         super(props)
         this.state = {
           options: this.props.options,
-          width: window.width
+          width: window.innerWidth
         };
       }
 
-    componentDidMount() {
+    componentWillMount() {
         window.addEventListener("resize", this.handleWindowSizeChange);
     }
 
@@ -82,7 +82,7 @@ export default class Dropdown extends Component {
             >
               <div className= { isMobile ? "mobile-dropdown":"dropdown" } >
                  <div className= "dropdown-wrapper">
-                  { isMobile && <FontAwesomeIcon className= "icon" icon={faTimesCircle} size="1x" onClick={ () => this.props.toggleListTitle('')} /> }
+                  { isMobile && <FontAwesomeIcon className= "icon" icon={faTimesCircle} size="2x" onClick={ () => this.props.toggleListTitle('')} /> }
                   <ul className="list" >
                     {this.createCheckboxes()}
                   </ul>

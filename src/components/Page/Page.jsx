@@ -9,11 +9,11 @@ class Page extends Component {
         super(props)
 
         this.state = {
-            width: window.width
+            width: window.innerWidth
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         window.addEventListener("resize", this.handleWindowSizeChange);
     }
 

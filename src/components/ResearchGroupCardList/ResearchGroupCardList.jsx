@@ -8,7 +8,6 @@ class ResearchGroupCardList extends Component {
 
 
   render () {
-		console.log('this.props.data', this.props.data);
     return (
     	<div className="card-list">
 				{this.props.data.map((singleCard,i) => 

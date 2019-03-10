@@ -11,7 +11,6 @@ class ResearchGroupCard extends Component {
 	
   render () {
 
-		console.log('this.state', this.state)
     return (
     	<div className="card">
 			<div className="card-header">
