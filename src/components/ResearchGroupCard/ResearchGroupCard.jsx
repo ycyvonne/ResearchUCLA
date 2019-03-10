@@ -1,56 +1,37 @@
 import React, { Component } from 'react';
 import './style.scss';
-import base from '../../base';
-import { timeout } from 'q';
+import { makeCourseList } from '../../helpers'
 
 class ResearchGroupCard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            card: props.card,
-        }
+
+	constructor(props){
+		super(props);
+		this.state={professor: props.professor, researchGroup: props.researchGroup, content: props.content, courses: props.courses};
     }
-    componentDidMount() {
-        const rg = this.state.card.researchGroup;
-        this.ref = base.syncState(rg, {
-            context: this,
-            state: 'card',
-        });
-        setTimeout(()=>{
-            this.setState({
-                card: {
-                    ...this.state.card,
-                    //professor: 'Boohoo'
-                }
-            })
-        },0) // tricking the syncstate to add this new info
-    }
-    componentWillUnmount() {
-        base.removeBinding(this.ref);
-        
-    }
-    render() {
-        return (
-            <div className="card">
-                <div className="card_professor">
-                    <p>{this.state.card.professor}</p>
-                </div>
-                <div className="card_research-group">
-                    <p>{this.state.card.researchGroup}</p>
-                </div>
-                <div className="card_content">
-                    <p>{this.state.card.content}</p>
-                </div>
-                
-                {/* <div className="card_courses">
-                    <p>Looking For:</p>
-                    <ul>
-                        {makeCourseList(this.props.courses).map((course)=> <li> {course} </li>)}
-                    </ul>
-                </div> */}
-            </div>
-        );
-    }
+    
+	
+  render () {
+    return (
+    	<div className="card">
+			<div className="card-header">
+				<p>{this.state.professor}</p>
+			</div>
+			<div className="card-title">
+				<p>{this.state.researchGroup}</p>
+			</div>
+			<div className="card-body">
+				<p>{this.state.content}</p>
+			</div>
+			<hr />
+			<div className="card-footer">
+				<p>Looking For:</p>
+				<ul>
+					{makeCourseList(this.state.courses).map((course, i)=> <li key={i}> {course} </li>)}
+				</ul>
+			</div>
+		</div>
+	);
+  }
 }
 
 export default ResearchGroupCard;

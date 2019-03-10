@@ -5,7 +5,7 @@ import Main from './pages/Main/Main';
 class App extends Component {
   render() {
     return (
-      <Main></Main>      
+      <Main></Main>
     );
   }
 }

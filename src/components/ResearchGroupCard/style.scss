@@ -1,28 +1,116 @@
-.App {
-  text-align: center;
+@import "../../styles/vars.scss";
+@import "../../styles/fonts.scss";
+
+$card-header-font: 24px;
+$card-header-height: 64px;
+
+.card{
+    text-align: center;
+    font-family: $body-font;
+    background-color: $gray-background;
+    border: medium solid $gray1;
+    margin: 10px;
+    height: 450px;
+    min-width: 200px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    hr {
+        border: none;
+        height: 3px;
+        background-color: $gray1; 
+    }
+
+    .card-header{
+        text-align: left;
+        color: $bright-blue;
+        margin: auto 20px;
+        font-size: 14px;
+        height: 5%;
+        margin-top: 20px;
+        overflow-y: hidden;
+    }
+
+    .card-title{
+        text-align: left;
+        font-weight: bold;
+        margin: 2px 20px 15px 20px;
+        font-size: $card-header-font;
+    height: $card-header-height;
+    text-overflow: ellipsis;
+    overflow-y: hidden;
+    }
+
+    .card-body{
+        text-align: left;
+        font-weight: 100;
+        margin: 2px 20px;
+        font-size: 14px;
+        height: 50%;
+        color: $gray2;
+        text-overflow: ellipsis;
+    }
+
+    .card-footer{
+        text-align: left;
+        margin: 0px 20px 20px 20px;
+        font-size: 14px;
+        font-weight: 100;
+        color: $gray2;
+
+        p{
+            color: $bright-blue;
+            font-size: 14px;
+        }
+        
+        li:before {
+            content: "\002b";
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0px;
+            margin: 0;
+        }
+
+    }
+
+    
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
+// Media Queries
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #61dafb;
-}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .card{
+        width: 100%;
+    }
+} 
 
-.App-link {
-  color: #61dafb;
-}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .card{
+        width: auto;
+    }
+} 
 
-.card {
-  top: 200px;
-  position: absolute;
-}
+/* Medium devices (landscape tablets, 768px(868) and up) */
+@media only screen and (min-width: 868px) {
+    .card{
+        width: 45%;
+    }
+} 
+
+/* Large devices (laptops/desktops, 992px(1296) and up) */
+@media only screen and (min-width: 1296px) {
+    .card{
+        width: 22%;
+        margin: 1%;
+    }
+    .card-title {
+        min-height: 80px;
+    }
+} 
+
