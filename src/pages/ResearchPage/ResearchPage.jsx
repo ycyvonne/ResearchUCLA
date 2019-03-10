@@ -10,13 +10,13 @@ const data =  [{
 	researchGroup: "Automated Reasoning Group", 
 	content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
 	courses: ["CS 32"],
-	areas: ["Foundations", "Algorithms"]
+	areas: ["Foundations", "Algorithms", "Treeing"]
 },{
 	professor: "Adnan Darwiche", 
 	researchGroup: "Automated Reasoning Group", 
 	content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
 	courses: ["CS M146", "CS 161"],
-	areas: ["Quantum Computing", "Algorithms"]
+	areas: ["Algorithms"]
 },{
 	professor: "Adnan Darwiche", 
 	researchGroup: "Automated Reasoning Group", 
@@ -36,11 +36,11 @@ const data =  [{
 	courses: ["CS M146", "CS 161", "RNNs"],
 	areas: ["Algorithms"]
 },{
-	professor: "Adnan Darwiche", 
+	professor: "Eggert", 
 	researchGroup: "Automated Reasoning Group", 
 	content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-	courses: ["CS M146", "CS 161", "RNNs"],
-	areas: ["Algorithms"]
+	courses: ["CS M146", "CS 161", "CS 111"],
+	areas: ["Algorithms" , "Surfing"]
 },{
 	professor: "Adnan Darwiche", 
 	researchGroup: "Automated Reasoning Group", 
@@ -147,7 +147,7 @@ class ResearchPage extends Component {
       this.state.options.map(this.createCard)
     )
     render() {
-
+      console.log(this.state.data)
         return (
             <Page>
                <Filter loadFilteredOptions={this.loadFilteredOptions} />

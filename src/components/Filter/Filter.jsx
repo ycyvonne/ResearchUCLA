@@ -5,7 +5,7 @@ import './style.scss';
 
 const researchArea = ['Algorithms', 'Quantum Computing', 'Surfing', 'Cooking', 'Machine Learning', 'Cycling', 'Rowing', 'Crying'];    
 const impactArea = ['Treeing', 'Eating', 'Sewing', 'Foundations', 'Medical'];
-const classSkill = ['Walking', 'Bowing', 'CS32', 'CS111', 'Linear Algebra', 'Graphic Design'];
+const classSkill = ['Walking', 'Bowing', 'CS 32', 'CS 111', 'Linear Algebra', 'Graphic Design'];
 export default class Filter extends Component {
     constructor(props) {
         super(props);
@@ -38,20 +38,24 @@ export default class Filter extends Component {
             listOpenList: name
         })
     }
-    createArea = option => (
-        <div className="filter-group" onMouseOver={() =>this.toggleListTitle(option)} onMouseOut={ () =>this.toggleListTitle('')} >
-        <div className="header-title"> {option} </div>
-        <div>
-        <Dropdown
-              loadFilteredOptions={this.props.loadFilteredOptions}
-              toggleListTitle={this.toggleListTitle}
-              toggleList={this.toggleList}
-              visible={this.state.listOpenTitle || this.state.listOpenList}
-              label={option}
-              key={option}
-              options={Object.values(this.allOptions[option])}
-        />
-        </div>
+    createArea = (option, i) => (
+        <div className="filter-group"
+            onMouseOver={() =>this.toggleListTitle(option)}
+            onMouseOut={ () =>this.toggleListTitle('')}
+            key={i}
+        >
+            <div className="header-title"> {option} </div>
+            <div>
+            <Dropdown
+                loadFilteredOptions={this.props.loadFilteredOptions}
+                toggleListTitle={this.toggleListTitle}
+                toggleList={this.toggleList}
+                visible={this.state.listOpenTitle || this.state.listOpenList}
+                label={option}
+                key={option}
+                options={Object.values(this.allOptions[option])}
+            />
+            </div>
         </div>
     )
 
