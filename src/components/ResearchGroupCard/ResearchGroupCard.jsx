@@ -23,7 +23,7 @@ class ResearchGroupCard extends Component {
                     //professor: 'Boohoo'
                 }
             })
-        },1) // tricking the syncstate to add this new info
+        },0) // tricking the syncstate to add this new info
     }
     componentWillUnmount() {
         base.removeBinding(this.ref);
