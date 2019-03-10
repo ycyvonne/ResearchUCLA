@@ -4,41 +4,43 @@ import FacultyPage from '../../pages/FacultyPage/FacultyPage';
 import ResearchPage from '../../pages/ResearchPage/ResearchPage';
 import NewsPage from '../../pages/NewsPage/NewsPage';
 import ResourcesPage from '../../pages/ResourcesPage/ResourcesPage';
+import NavBar from '../../components/NavBar/NavBar';
 import ResearchGroupCard from '../../components/ResearchGroupCard/ResearchGroupCard';
 import {BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { jsonResponse } from '../../mockData';
 import Page from '../../components/Page/Page';
+import base from '../../base';
 
 class Main extends Component {
     constructor(props) {
+        super(props);
         this.state = {
-            cards:[]
+            cards: jsonResponse.cards
         }
     }
     componentDidMount() {
-        const rg = this.state.card.researchGroup;
-        this.ref = base.syncState(rg, {
+        //const rg = this.state.card.researchGroup;
+        this.ref = base.syncState("cards", {
             context: this,
             state: 'cards',
         });
         setTimeout(()=>{
             this.setState({
-                cards
+                ...this.state
             })
         },0) // tricking the syncstate to add this new info
     }
     componentWillUnmount() {
         base.removeBinding(this.ref);
-        
+    
     }
     render() {
         return (
             <Router>
-                    <NavBar></NavBar>
+                    
                 <Page>
-                    <ResearchGroupCard {...jsonResponse.cards[14]} />
-                    {/* <ResearchGroupCard group="Automated Reasoning Group" /> */}
-                    <Route path="/research" component = {ResearchPage} />
+                    <NavBar></NavBar>
+                    <Route path="/research" render={()=>(<ResearchPage cards={this.state.cards}/>)} />
                     <Route path="/faculty" component = {FacultyPage} />
                     <Route path="/news" component = {NewsPage} />
                     <Route path="/resources" component = {ResourcesPage} />

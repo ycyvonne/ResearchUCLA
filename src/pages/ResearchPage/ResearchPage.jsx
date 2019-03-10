@@ -7,7 +7,7 @@ class ResearchPage extends Component {
     render() {
         return (
             <Page>
-                <ResearchGroupCardList />
+                <ResearchGroupCardList cards={this.props.cards} />
             </Page>
         );
     }
