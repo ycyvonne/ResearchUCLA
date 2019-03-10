@@ -3,12 +3,13 @@ import ResearchGroupCardList from '../../components/ResearchGroupCardList/Resear
 import './style.scss';
 import Filter from '../../components/Filter/Filter'
 import Page from '../../components/Page/Page'
+import { filter } from 'rsvp';
 
 const data =  [{
 	professor: "Adnan Darwiche", 
 	researchGroup: "Automated Reasoning Group", 
 	content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-	courses: ["CS M146"],
+	courses: ["CS 32"],
 	areas: ["Foundations", "Algorithms"]
 },{
 	professor: "Adnan Darwiche", 
@@ -118,15 +119,17 @@ class ResearchPage extends Component {
       return;
     }
     var newData = []
+    
     for(let i =0; i < availableData.length; i++) {
+      let filterCount = 0;
       for(let j =0; j < filters.length; j++) {
-        if (availableData[i].courses.includes(filters[j])) {
-          newData.push(availableData[i]);
-          continue;
-        } else if (availableData[i].areas.includes(filters[j])) {
-          newData.push(availableData[i]);
-          continue;
-        }
+        if (!availableData[i].courses.includes(filters[j]) && !availableData[i].areas.includes(filters[j]) ) {
+          break;
+        } 
+        filterCount++;
+      }
+      if (filterCount === filters.length) {
+        newData.push(availableData[i]);
       }
     }
     this.setState({
