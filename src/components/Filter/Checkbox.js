@@ -6,7 +6,7 @@ export default class Checkbox extends Component {
         super(props)
         this.handleSelectItem = this.handleSelectItem.bind(this);
     }
-    handleSelectItem() {
+    handleSelectItem(event) {
         this.props.addSelectedItem(this.props.label, !this.props.selected);
     }
     render() {

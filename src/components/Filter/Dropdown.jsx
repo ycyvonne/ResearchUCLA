@@ -78,7 +78,7 @@ export default class Dropdown extends Component {
     const isMobile = width <= 800;
         return (
             <div className= { this.props.visible === this.props.label ? "opacity-visible": "opacity-invisible" }
-            onMouseOver={ !isMobile ? () => this.props.toggleList(this.props.label) : null} onMouseOut={ () => this.props.toggleList('') }
+            onMouseOver={ !isMobile ? () => this.props.toggleList(this.props.label) : null} onMouseOut= { !isMobile ? () => this.props.toggleList('') : null }
             >
               <div className= { isMobile ? "mobile-dropdown":"dropdown" } >
                  <div className= "dropdown-wrapper">

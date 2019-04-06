@@ -15,7 +15,7 @@ export default class Filter extends Component {
         };
         this.allOptions = 
         {'Research Area': this.createDicts(researchArea), 'Impact Area': this.createDicts(impactArea), 
-        'Classes/Skills': this.createDicts(classSkill)};
+        'Classes & Skills': this.createDicts(classSkill)};
         this.toggleList=this.toggleList.bind(this);
         this.toggleListTitle=this.toggleListTitle.bind(this);
     }
@@ -71,7 +71,7 @@ export default class Filter extends Component {
     )
 
 render() {  
-    console.log(this.state.listOpenTitle, this.state.listOpenList)
+    console.log(this.state.listOpenTitle, "WOW", this.state.listOpenList, "HEY")
     return (
         <div className="filter">
         {this.createFilter()}
