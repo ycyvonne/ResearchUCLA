@@ -33,6 +33,7 @@ export default class Filter extends Component {
             this.setState({
                 listOpenTitle: ''
             })
+            return
         }
         this.setState({
             listOpenTitle: name
