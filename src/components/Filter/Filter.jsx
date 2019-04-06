@@ -64,6 +64,7 @@ export default class Filter extends Component {
     )
 
 render() {  
+    console.log(this.state.listOpenTitle, this.state.listOpenList)
     return (
         <div className="filter">
         {this.createFilter()}
