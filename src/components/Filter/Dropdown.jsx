@@ -82,7 +82,7 @@ export default class Dropdown extends Component {
             >
               <div className= { isMobile ? "mobile-dropdown":"dropdown" } >
                  <div className= "dropdown-wrapper">
-                  { isMobile && <FontAwesomeIcon className= "icon" icon={faTimesCircle} size="2x" onClick={ () => this.props.toggleListTitle('')} /> }
+                  { isMobile && <FontAwesomeIcon className= "icon" icon={faTimesCircle} size="2x" onClick={ () => this.props.toggleListTitle('mobile')} /> }
                   <ul className="list" >
                     {this.createCheckboxes()}
                   </ul>

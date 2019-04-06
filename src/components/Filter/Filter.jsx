@@ -29,6 +29,13 @@ export default class Filter extends Component {
     }
 
     toggleListTitle(name) {
+        if (name === 'mobile') {
+            this.setState({
+                listOpenTitle: '',
+                listOpenList: ''
+            });
+            return;
+        }
         this.setState({
             listOpenTitle: name
         })
