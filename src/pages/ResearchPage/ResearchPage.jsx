@@ -73,7 +73,7 @@ class ResearchPage extends Component {
         super(props)
         this.state = {
           options : [],
-          filters: {'Research Area': [], 'Impact Area':[], 'Classes/Skills':[]},
+          filters: {'Research Area': [], 'Impact Area':[], 'Classes & Skills':[]},
           data: data
         }
         this.loadFilteredOptions=this.loadFilteredOptions.bind(this);
@@ -91,7 +91,7 @@ class ResearchPage extends Component {
       this.setState({
         filters: full,
       });
-        if (this.state.filters['Research Area'].length === 0 && this.state.filters['Impact Area'].length === 0 && this.state.filters['Classes/Skills'].length === 0) {
+        if (this.state.filters['Research Area'].length === 0 && this.state.filters['Impact Area'].length === 0 && this.state.filters['Classes & Skills'].length === 0) {
           this.setState({
             options: []
           }, () => this.filterData())
@@ -101,7 +101,7 @@ class ResearchPage extends Component {
         let totalFilters = []
         totalFilters=totalFilters.concat(this.state.filters['Research Area'])
         totalFilters=totalFilters.concat(this.state.filters['Impact Area'])
-        totalFilters=totalFilters.concat(this.state.filters['Classes/Skills'])
+        totalFilters=totalFilters.concat(this.state.filters['Classes & Skills'])
         this.setState({
           options: totalFilters
         }, () => this.filterData());
@@ -147,7 +147,6 @@ class ResearchPage extends Component {
       this.state.options.map(this.createCard)
     )
     render() {
-      console.log(this.state.data)
         return (
             <Page>
                <Filter loadFilteredOptions={this.loadFilteredOptions} />

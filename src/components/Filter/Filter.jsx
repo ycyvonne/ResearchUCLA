@@ -29,12 +29,10 @@ export default class Filter extends Component {
     }
 
     toggleListTitle(name) {
-        if (name === 'mobile') {
+        if (name === this.state.listOpenTitle) {
             this.setState({
-                listOpenTitle: '',
-                listOpenList: ''
-            });
-            return;
+                listOpenTitle: ''
+            })
         }
         this.setState({
             listOpenTitle: name
@@ -71,7 +69,6 @@ export default class Filter extends Component {
     )
 
 render() {  
-    console.log(this.state.listOpenTitle, "WOW", this.state.listOpenList, "HEY")
     return (
         <div className="filter">
         {this.createFilter()}
