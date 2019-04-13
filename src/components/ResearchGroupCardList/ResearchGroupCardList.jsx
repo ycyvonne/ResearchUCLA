@@ -8,13 +8,6 @@ class ResearchGroupCardList extends Component {
 	constructor(props) {
 		super(props);
 		this.props = props;
-		// ***STATE CURRENTLY CONTAINS DUMMY DATA!***
-		// this.state should contain one element data, which is an array of objects, each of which contains information about a ResearchGroupCard
-		// the required information must be appriately fetched 
-
-		this.state = {
-			data: props.cards
-		}
 	}
 
 	render() {
