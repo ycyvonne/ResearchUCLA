@@ -29,12 +29,6 @@ export default class Filter extends Component {
     }
 
     toggleListTitle(name) {
-        if (name === this.state.listOpenTitle) {
-            this.setState({
-                listOpenTitle: ''
-            })
-            return
-        }
         this.setState({
             listOpenTitle: name
         })
