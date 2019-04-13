@@ -15,7 +15,7 @@ class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cards: jsonResponse.cards
+            cards: []
         }
     }
     componentDidMount() {
@@ -23,21 +23,15 @@ class Main extends Component {
         this.ref = base.syncState("cards", {
             context: this,
             state: 'cards',
+            asArray: true
         });
-        setTimeout(()=>{
-            this.setState({
-                ...this.state
-            })
-        },0) // tricking the syncstate to add this new info
     }
     componentWillUnmount() {
         base.removeBinding(this.ref);
-    
     }
     render() {
         return (
             <Router>
-                    
                 <Page>
                     <NavBar></NavBar>
                     <Route path="/research" render={()=>(<ResearchPage cards={this.state.cards}/>)} />

@@ -6,26 +6,26 @@ class ResearchGroupCard extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { professor: props.professor, researchGroup: props.researchGroup, content: props.content, courses: props.courses };
+        this.props = props;
     }
 
     render() {
         return (
             <div className="card">
                 <div className="card-header">
-                    <p>{this.state.professor}</p>
+                    <p>{this.props.professor}</p>
                 </div>
                 <div className="card-title">
-                    <p>{this.state.researchGroup}</p>
+                    <p>{this.props.researchGroup}</p>
                 </div>
                 <div className="card-body">
-                    <p>{this.state.content}</p>
+                    <p>{this.props.content}</p>
                 </div>
                 <hr />
                 <div className="card-footer">
                     <p>Looking For:</p>
                     <ul>
-                        {makeCourseList(this.state.courses).map((course, i) => <li key={i}> {course} </li>)}
+                        {makeCourseList(this.props.courses).map((course, i) => <li key={i}> {course} </li>)}
                     </ul>
                 </div>
             </div>

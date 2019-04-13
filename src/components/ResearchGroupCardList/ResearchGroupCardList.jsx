@@ -7,7 +7,7 @@ class ResearchGroupCardList extends Component {
 
 	constructor(props) {
 		super(props);
-
+		this.props = props;
 		// ***STATE CURRENTLY CONTAINS DUMMY DATA!***
 		// this.state should contain one element data, which is an array of objects, each of which contains information about a ResearchGroupCard
 		// the required information must be appriately fetched 
@@ -20,7 +20,7 @@ class ResearchGroupCardList extends Component {
 	render() {
 		return (
 			<div className="card-list">
-				{this.state.data.map((singleCard, i) =>
+				{this.props.cards.map((singleCard, i) =>
 					<ResearchGroupCard
 						key={i}
 						courses={singleCard.courses}
