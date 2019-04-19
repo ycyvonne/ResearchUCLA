@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import uclaLogo from '../../ucla-samueli-logo-white.png';
 import './NavBar.scss';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import base from '../../base';
 
 class NavBar extends Component {
     constructor(props) {
@@ -58,7 +59,7 @@ class NavBar extends Component {
                 <div id="navbar-wrapper">
                     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"></link>
                     <button id="toggleButton" onClick={this.toggleMenu}>
-                        <i class="fas fa-bars fa-2x"></i>
+                        <i className="fas fa-bars fa-2x"></i>
                     </button>
                     <div id="title-mobile">
                         <style>@import url('https://fonts.googleapis.com/css?family=Montserrat');</style>

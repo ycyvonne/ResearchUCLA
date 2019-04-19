@@ -149,8 +149,7 @@ class ResearchPage extends Component {
     render() {
         return (
             <Page>
-               <Filter loadFilteredOptions={this.loadFilteredOptions} />
-                <ResearchGroupCardList data={this.state.data}/>
+                <ResearchGroupCardList cards={this.props.cards} />
             </Page>
         );
     }
