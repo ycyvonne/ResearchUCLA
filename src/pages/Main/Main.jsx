@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Page from '../../components/Page/Page';
 import base from '../../base';
 
+
 class Main extends Component {
     constructor(props) {
         super(props);
@@ -38,6 +39,7 @@ class Main extends Component {
             </Router>
         );
     }
+
 }
 
 export default Main;

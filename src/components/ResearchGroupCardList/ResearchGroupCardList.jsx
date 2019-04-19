@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+	import React, { Component } from 'react';
 import './style.scss';
 import ResearchGroupCard from '../ResearchGroupCard/ResearchGroupCard'
 import { formatContent, makeUppercase } from '../../helpers'
+
 
 class ResearchGroupCardList extends Component {
 

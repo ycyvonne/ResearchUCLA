@@ -1,0 +1,40 @@
+@import "./breakpoints.scss";
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.mobile-only {
+    display: none;
+}
+
+.desktop-only {
+    display: block;
+}
+
+.opacity-invisible {
+    opacity: 0;
+    pointer-events: none;
+}
+.opacity-visible {
+    opacity: 1;
+}
+
+.icon {
+    position: absolute;
+    z-index: 10;
+    right:25px;
+    top:15px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: $bp-med) {
+    .mobile-only {
+        display: block;
+    }
+    
+    .desktop-only {
+        display: none;
+    }
+}
