@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import Dropdown from './Dropdown'
-import { createDicts } from '../../utils/utils';
+import { createDicts } from '../../helpers';
 import './style.scss';
 
 const researchArea = ['Algorithms', 'Quantum Computing', 'Surfing', 'Cooking', 'Machine Learning', 'Cycling', 'Rowing', 'Crying'];    
