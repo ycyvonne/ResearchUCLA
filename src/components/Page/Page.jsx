@@ -6,40 +6,17 @@ import NavBar from '../../components/NavBar/NavBar';
 
 class Page extends Component {
     constructor(props) {
-        super(props)
-
-        this.state = {
-            width: window.innerWidth
-        }
+        super(props);
     }
-
-    componentWillMount() {
-        window.addEventListener("resize", this.handleWindowSizeChange);
-    }
-
-  componentWillUnmount() {
-        window.removeEventListener('resize', this.handleWindowSizeChange);
-  }
-  handleWindowSizeChange = () => {
-      this.setState({
-          width: window.innerWidth,
-      })
-  };
 
     render() {
-        const { width } = this.state;
-        const isMobile = width <= 800;
         return (
-        <div className = { isMobile ? "mobile-page":"default-page"}>
-        <NavBar />
-        {this.props.children}
-    </div> 
+            <div className = "page">
+                <NavBar />
+                {this.props.children}
+            </div> 
         )
 
     }
-
-    
-    
-
 }
 export default Page;

@@ -1,23 +1,20 @@
 @import '~pretty-checkbox/src/pretty-checkbox.scss';
 @import "../../styles/vars.scss";
+@import "../../styles/breakpoints.scss";
 
-.opacity-invisible {
-  opacity: 0;
-  pointer-events: none;
-}
-.opacity-visible {
-  opacity: 1;
-}
 .clear {
   font-size: calc(5px + 1vmin);
   font-weight: 600;
   color: $bright-blue;
   padding: 10px;
+
+  &:hover {  
+    color: dodgerblue;
+    cursor: pointer;
+  }
 }
-.clear:hover {  
-  color: dodgerblue;
-  cursor: pointer;
-}
+
+/*********** Filter ***********/
 
 .filter {
   border-style: solid;
@@ -43,13 +40,24 @@
     z-index: 20;
     height: 100%;
     cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
     
   }
-  .filter-group:hover {
-    opacity: 1;
-  }
+}
+
+.header-title {
+  font-size: calc(12px + 1vmin);
+  font-weight: 600;
+  margin-left: 1rem;
+  text-align: center;
+  padding: 5px;
 
 }
+
+/*********** Dropdown ***********/
 
 .dropdown{
   position: absolute;
@@ -74,53 +82,39 @@
   background-color: white;
 
 }
-.mobile-dropdown {
-    position: absolute;
-    z-index: 50;
-    top: 141px;
-    left: 0px;
-    right: 0px;
-    background-color: white;
 
-}
-  
-  .header {
-    color:black;
-    height: 40px;
-    width: 100%;
-    display: flex;
+.list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: transparent;
+
+  .list-item-container {
+    height: 35px;
     flex-direction: row;
     align-items: center;
+  }
+}
 
+/**** mobile ***/
+@media only screen and (max-width: $bp-med) {
+
+  .mobile-only {
+    display: block;
   }
 
-  .header-title {
-    font-size: calc(12px + 1vmin);
-    font-weight: 600;
-    margin-left: 1rem;
-    text-align: center;
-    padding: 5px;
-
+  .desktop-only {
+    display: none;
   }
 
-  .icon {
-    position: absolute;
-    z-index: 10;
-    right:25px;
-    top:15px;
-    cursor: pointer;
+  .mobile-dropdown {
+      position: absolute;
+      z-index: 50;
+      top: 141px;
+      left: 0px;
+      right: 0px;
+      background-color: white;
   }
-  
-  .list {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: transparent;
 
-    .list-item-container {
-      height: 35px;
-      flex-direction: row;
-      align-items: center;
-    }
-  }
+}

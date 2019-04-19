@@ -1,11 +1,13 @@
 
 import React, { Component } from 'react';
 import Dropdown from './Dropdown'
+import { createDicts } from '../../utils/utils';
 import './style.scss';
 
 const researchArea = ['Algorithms', 'Quantum Computing', 'Surfing', 'Cooking', 'Machine Learning', 'Cycling', 'Rowing', 'Crying'];    
 const impactArea = ['Treeing', 'Eating', 'Sewing', 'Foundations', 'Medical'];
 const classSkill = ['Walking', 'Bowing', 'CS 32', 'CS 111', 'Linear Algebra', 'Graphic Design'];
+
 export default class Filter extends Component {
     constructor(props) {
         super(props);
@@ -13,34 +15,27 @@ export default class Filter extends Component {
             listOpenTitle: '',
             listOpenList: '',
         };
-        this.allOptions = 
-        {'Research Area': this.createDicts(researchArea), 'Impact Area': this.createDicts(impactArea), 
-        'Classes & Skills': this.createDicts(classSkill)};
-        this.toggleList=this.toggleList.bind(this);
-        this.toggleListTitle=this.toggleListTitle.bind(this);
+        this.allOptions = {
+            'Research Area': createDicts(researchArea),
+            'Impact Area': createDicts(impactArea), 
+            'Classes & Skills': createDicts(classSkill)
+        };
     }
 
-    createDicts(area) {
-        let arrayOfDict = []
-        for (let i = 0 ; i < area.length ; i++) {
-            arrayOfDict.push({category:area[i], selected: false});
-        }
-        return arrayOfDict;
-    }
-
-    toggleListTitle(name) {
+    toggleListTitle = (name) => {
         if(name === 'mobile') {
             this.setState({
                 listOpenTitle: '',
                 listOpenList:''
             })
-            return;
         }
-        this.setState({
-            listOpenTitle: name
-        })
+        else {
+            this.setState({
+                listOpenTitle: name
+            })
+        }
     }
-    toggleList(name) {
+    toggleList = (name) => {
         this.setState({
             listOpenList: name
         })
@@ -70,13 +65,13 @@ export default class Filter extends Component {
         (Object.keys(this.allOptions)).map(this.createArea)
     )
 
-render() {  
-    return (
-        <div className="filter">
-        {this.createFilter()}
-        </div>
-    )
-}
+    render() {  
+        return (
+            <div className="filter">
+            {this.createFilter()}
+            </div>
+        )
+    }
 
 
 }

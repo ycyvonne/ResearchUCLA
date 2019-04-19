@@ -8,24 +8,10 @@ export default class Dropdown extends Component {
     constructor(props){
         super(props)
         this.state = {
-          options: this.props.options,
-          width: window.innerWidth
+          options: this.props.options
         };
       }
 
-    componentWillMount() {
-        window.addEventListener("resize", this.handleWindowSizeChange);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.handleWindowSizeChange);
-    }
-
-    handleWindowSizeChange = () => {
-        this.setState({
-            width: window.innerWidth,
-        })
-    };
     createCheckbox = option => (
         <Checkbox
                 label={option.category}
@@ -39,8 +25,9 @@ export default class Dropdown extends Component {
     createCheckboxes = () => (
         this.state.options.map(this.createCheckbox)
     )
+
     addSelectedItem = (item, selected) => {
-        for (let i =0; i < this.props.options.length; i++ ) {
+        for (let i = 0; i < this.props.options.length; i++ ) {
                 if (this.props.options[i].category === item) {
                     this.props.options[i].selected = selected;
                 }
@@ -52,14 +39,13 @@ export default class Dropdown extends Component {
     }
     clearAll = () => {
         const newOptions = [...this.state.options];
-        for (let i =0; i < newOptions.length; i++ ) {
-                    newOptions[i].selected = false
+        for (let i = 0; i < newOptions.length; i++ ) {
+            newOptions[i].selected = false
         }
         this.setState({
             options: newOptions
         })
         this.props.loadFilteredOptions(this.props.label,[])
-
     }
 
     addFilter(){
@@ -69,30 +55,46 @@ export default class Dropdown extends Component {
             if (filterList[i].selected) {
                 array.push(filterList[i].category)
             }
-    }
+        }
         this.props.loadFilteredOptions(this.props.label,array)
     }
 
     render() {
-    const { width } = this.state;
-    const isMobile = width <= 800;
         return (
-            <div className= { this.props.visible === this.props.label ? "opacity-visible": "opacity-invisible" }
-            onMouseOver={ !isMobile ? () => this.props.toggleList(this.props.label) : null} onMouseOut= { !isMobile ? () => this.props.toggleList('') : null }
-            >
-              <div className= { isMobile ? "mobile-dropdown":"dropdown" } >
-                 <div className= "dropdown-wrapper">
-                  { isMobile ? <FontAwesomeIcon className= "icon" icon={faTimesCircle} size="2x" onClick={ () => this.props.toggleListTitle('mobile')} /> : null }
-                  <ul className="list" >
-                    {this.createCheckboxes()}
-                  </ul>
-                  <div className="clear" onClick={() => this.clearAll()}> Clear all </div>
-                 </div> 
-              </div>
+            <div>
+                <div 
+                    className= {(this.props.visible === this.props.label ? "opacity-visible ": "opacity-invisible ") + "desktop-only"}
+                    onMouseOver={() => this.props.toggleList(this.props.label)}
+                    onMouseOut= {() => this.props.toggleList('')}
+                >
+                    <div className="dropdown">
+                        <div className= "dropdown-wrapper">
+                        <ul className="list">
+                            {this.createCheckboxes()}
+                        </ul>
+                        <div className="clear" onClick={() => this.clearAll()}> Clear all </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <div 
+                    className= { (this.props.visible === this.props.label ? "opacity-visible ": "opacity-invisible ") + "mobile-only" }
+                >
+                    <div className="mobile-dropdown">
+                        <div className= "dropdown-wrapper">
+                        <FontAwesomeIcon
+                            className= "icon"
+                            icon={faTimesCircle} size="2x"
+                            onClick={ () => this.props.toggleListTitle('mobile')} />
+                        <ul className="list" >
+                            {this.createCheckboxes()}
+                        </ul>
+                        <div className="clear" onClick={() => this.clearAll()}> Clear all </div>
+                        </div> 
+                    </div>
+                </div>
             </div>
         )
 
     }
-
-    
 }

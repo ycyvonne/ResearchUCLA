@@ -1,9 +1,13 @@
-.default-page{
-    margin-top: 100px; //This is to account for the height of the NavBar
+@import "../../styles/breakpoints.scss";
+@import "../../styles/vars.scss";
+
+.page{
+    margin-top: $navbar-height; //This is to account for the height of the NavBar
 }
 
-.mobile-page{
-    margin-top: 80px;
-    background-color: green;    
-    width: 100vw;
+@media only screen and (max-width: $bp-med) {
+    .page{
+        margin-top: 80px;
+        width: 100vw;
+    }
 }

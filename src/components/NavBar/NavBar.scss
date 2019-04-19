@@ -1,15 +1,14 @@
 @import "../../styles/vars.scss";
 @import "../../styles/fonts.scss";
-body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
+@import "../../styles/breakpoints.scss";
+
+
 #navbar {
     background-color: black;
     position: absolute;
     top: 0px;
     left: 0px;
-    height: 100px;
+    height: $navbar-height;
     width: 100%;
 }
 
@@ -67,73 +66,90 @@ a {
 
 /***************************************/
 
-#title-mobile {
-    background-color: black;
-    top: 0%;
-    width: 100vw;
-    height: 80px;
-    font-size: 1.5vw;
-    text-align: left;
-    position: fixed;
-    color: white;
-    font-family: $header-font, sans-serif;
-    z-index: 25;
-}
-#title-mobile h1 {
-    top: 12%;
-    left: 5%;
-    position: absolute;
-}
-#menu-mobile {
-    background-color: black;
-    opacity: 0.80;
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    flex-direction: column;
-    position: fixed;
-    display: flex;
-    transition: 1s;
-    z-index: 24;
-    width: 50vw;
-    height: 100vh;
+#navbar-wrapper{
 
-}
-#menu-item-wrapper-mobile {
-    position: absolute;
-    top: 20vw;
-    left: 1vw;
-    transition: 1s;
-}
-.menu-item-mobile {
-    font-size: 3vw;
-    font-family: $header-font, sans-serif;  
-    font-weight: bold;
-    text-align: left;
-    margin: 0 40px;
-    padding: 5px;
+    #title-mobile {
+        background-color: black;
+        top: 0%;
+        width: 100vw;
+        height: 80px;
+        font-size: 1.5vw;
+        text-align: left;
+        position: fixed;
+        color: white;
+        font-family: $header-font, sans-serif;
+        z-index: 25;
+
+        h1 {
+            top: 12%;
+            left: 5%;
+            position: absolute;
+        }
+    }
+
+    #menu-mobile {
+        background-color: black;
+        opacity: 0.80;
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        flex-direction: column;
+        position: fixed;
+        display: flex;
+        transition: 0.7s;
+        z-index: 24;
+        width: 50vw;
+        height: 100vh;
+        transform: translateX(100%);
+    }
+
+    #menu-item-wrapper-mobile {
+        position: absolute;
+        top: 20vw;
+        left: 1vw;
+        transition: 0.7s;
+    }
+    .menu-item-mobile {
+        font-size: 3vw;
+        font-family: $header-font, sans-serif;  
+        font-weight: bold;
+        text-align: left;
+        margin: 0 40px;
+        padding: 5px;
+
+        p:hover {
+            color: $light-blue;
+        }
+    }
+        
+    #toggleButton {
+        display: inline-block;
+        background: none;
+        color: white;
+        border: none;
+        text-decoration: none;
+        outline: none;
+        position: fixed;
+        width: 9vw;
+        height: 9vw;
+        top: 2.5vw;
+        right: 6vw;
+        z-index: 26;
+        cursor: pointer;
+        transition: 0.7s;
+    }
+
+    &.toggled {
+        #menu-mobile {
+            transform: translateX(0%);
+        }
+
+        #toggleButton {
+            transform: rotate(90deg);
+        }
+    }
 }
 
-.menu-item-mobile p:hover {
-    color: $light-blue;
-}
-
-#toggleButton {
-    display: inline-block;
-    background-color: black;
-    color: white;
-    border: none;
-    text-decoration: none;
-    outline: none;
-    position: fixed;
-    width: 9vw;
-    height: 9vw;
-    top: 2.5vw;
-    right: 6vw;
-    z-index: 26;
-    cursor: pointer;
-    transition: 1s;
-}
-
-
+@media only screen and (max-width: $bp-med) {
     
+}

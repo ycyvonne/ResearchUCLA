@@ -1,5 +1,6 @@
 @import "../../styles/vars.scss";
 @import "../../styles/fonts.scss";
+@import "../../styles/breakpoints.scss";
 
 $card-header-font: 24px;
 $card-header-height: 64px;
@@ -75,36 +76,23 @@ $card-header-height: 64px;
         }
 
     }
-
-    
-
 }
 
 // Media Queries
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: $bp-med) {
     .card{
         width: 100%;
     }
-} 
+}
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-    .card{
-        width: auto;
-    }
-} 
-
-/* Medium devices (landscape tablets, 768px(868) and up) */
-@media only screen and (min-width: 868px) {
+@media only screen and (min-width: $bp-med) {
     .card{
         width: 45%;
     }
 } 
 
-/* Large devices (laptops/desktops, 992px(1296) and up) */
-@media only screen and (min-width: 1296px) {
+@media only screen and (min-width: $bp-large) {
     .card{
         width: 22%;
         margin: 1%;

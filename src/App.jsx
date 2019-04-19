@@ -6,9 +6,8 @@ class App extends Component {
 
   render() {
     return (
-    <Main/>
-      )
-
+      <Main/>
+    )
   }
 }
 

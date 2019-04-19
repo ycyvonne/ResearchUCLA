@@ -4,9 +4,9 @@ import './style.scss';
 export default class Checkbox extends Component {
     constructor(props){
         super(props)
-        this.handleSelectItem = this.handleSelectItem.bind(this);
     }
-    handleSelectItem(event) {
+
+    handleSelectItem = (event) => {
         this.props.addSelectedItem(this.props.label, !this.props.selected);
     }
     render() {
