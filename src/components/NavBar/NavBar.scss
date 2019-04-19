@@ -70,7 +70,7 @@ a {
 #title-mobile {
     background-color: black;
     top: 0%;
-    width: 100%;
+    width: 100vw;
     height: 80px;
     font-size: 1.5vw;
     text-align: left;
@@ -85,18 +85,19 @@ a {
     position: absolute;
 }
 #menu-mobile {
-    width: 50%;
-    height: 100%;
     background-color: black;
     opacity: 0.80;
     position: fixed;
     top: 0px;
-    right: -50%;
+    right: 0px;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     display: flex;
     transition: 1s;
     z-index: 24;
+    width: 50vw;
+    height: 100vh;
+
 }
 #menu-item-wrapper-mobile {
     position: absolute;
@@ -128,7 +129,7 @@ a {
     width: 9vw;
     height: 9vw;
     top: 2.5vw;
-    right: 2vw;
+    right: 6vw;
     z-index: 26;
     cursor: pointer;
     transition: 1s;

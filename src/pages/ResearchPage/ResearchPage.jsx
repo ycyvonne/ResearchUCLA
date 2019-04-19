@@ -148,9 +148,11 @@ class ResearchPage extends Component {
     )
     render() {
         return (
-            <Page>
+          <div>
+            <Filter loadFilteredOptions={this.loadFilteredOptions} />
                 <ResearchGroupCardList cards={this.props.cards} />
-            </Page>
+          </div>
+                
         );
     }
 }

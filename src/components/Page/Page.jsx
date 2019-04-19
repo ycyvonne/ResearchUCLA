@@ -31,7 +31,7 @@ class Page extends Component {
         const isMobile = width <= 800;
         return (
         <div className = { isMobile ? "mobile-page":"default-page"}>
-        <NavBar> </NavBar>
+        <NavBar />
         {this.props.children}
     </div> 
         )
