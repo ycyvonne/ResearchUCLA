@@ -89,6 +89,9 @@ class NavBar extends Component {
                         <div className="menu-item">
                             <Link to="/news"><p>NEWS</p></Link>
                         </div>
+                        <div className="menu-item">
+                            <Link to="/login"><p>LOGIN</p></Link>
+                        </div>
                     </div>
 
                 </div>
