@@ -1,0 +1,33 @@
+.modal{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    overflow: auto;
+    border: 3px solid black;
+}
+
+.modal-content{
+    margin: 120px;
+    padding: 20px;
+    background: #fff;
+}
+
+.modal-filter {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.50;    
+    z-index: 900;
+}
+
+body.modal-visible{
+    overflow-y: hidden;
+}
