@@ -5,18 +5,24 @@ import ResearchPage from '../../pages/ResearchPage/ResearchPage';
 import NewsPage from '../../pages/NewsPage/NewsPage';
 import ResourcesPage from '../../pages/ResourcesPage/ResourcesPage';
 import LoginPage from '../../pages/LoginPage/LoginPage';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import Page from '../../components/Page/Page';
+import Auth from '../../components/Auth';
 import base from '../../base';
 import {provider} from '../../base';
 import firebase from 'firebase'
+import AdminPage from '../AdminPage';
 
+const fakeAuth = {
+    isAuthenticated: false,
+  };
 
 class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cards: []
+            cards: [],
+            user:false
         }
 
     }
@@ -34,9 +40,7 @@ class Main extends Component {
     }
 
     login = () =>  {
-        console.log(firebase.app().options);
         firebase.auth().signInWithRedirect(provider);
-      
         firebase.auth()
         .getRedirectResult()
         .then((result) => {
@@ -60,14 +64,17 @@ class Main extends Component {
        
     }
 
+
     render() {
         return (
             <Router>
+               
                 <Page>
                     <Route path="/research" render={() => (<ResearchPage cards={this.state.cards} />)} />
                     <Route path="/faculty" component={FacultyPage} />
                     <Route path="/news" component={NewsPage} />
                     <Route path="/resources" component={ResourcesPage} />
+                    <PrivateRoute path="/admin" rcomponent={AdminPage} />
                     <Route path="/login" render={() => (<LoginPage login={this.login} />)} />
                 </Page>
             </Router>
@@ -75,5 +82,25 @@ class Main extends Component {
     }
 
 }
+
+function PrivateRoute({ component: Component, ...rest }) {
+    return (
+      <Route
+        {...rest}
+        render={props =>
+         fakeAuth.isAuthenticated ? (
+            <Component {...props} />
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/login",
+                state: { from: props.location }
+              }}
+            />
+          )
+        }
+      />
+    );
+  }
 
 export default Main;
