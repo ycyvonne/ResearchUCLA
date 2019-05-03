@@ -65,7 +65,6 @@ const data = [{
   areas: []
 }]
 
-
 class ResearchPage extends Component {
   constructor(props) {
     super(props)

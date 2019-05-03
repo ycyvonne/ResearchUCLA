@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Button.scss';
+import './style.scss';
 
 class Button extends Component {
     constructor(props) {
@@ -8,10 +8,11 @@ class Button extends Component {
 
     render() {
         return (
-            <div className="button-div" onClick={this.props.onClick}
+            <div className="button-div"
                 style={{backgroundColor: this.props.backgroundColor,
                         color: this.props.textColor,
-                        "border-color": this.props.borderColor }}>
+                        borderColor: this.props.borderColor }}
+                onClick={this.props.onClick}>
                 {this.props.children}
             </div>
         )
