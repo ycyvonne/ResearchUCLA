@@ -38,9 +38,9 @@ $card-header-height: 64px;
         font-weight: bold;
         margin: 2px 20px 15px 20px;
         font-size: $card-header-font;
-    height: $card-header-height;
-    text-overflow: ellipsis;
-    overflow-y: hidden;
+        height: $card-header-height;
+        text-overflow: ellipsis;
+        overflow-y: hidden;
     }
 
     .card-body{
@@ -74,7 +74,17 @@ $card-header-height: 64px;
             padding: 0px;
             margin: 0;
         }
+    }
 
+    .card-button {
+        float: right;
+        margin: 1% 2%;
+    }
+
+    .edit-modal {
+        margin-left: 230px;
+        margin-top: 35px;
+        position: absolute;
     }
 }
 

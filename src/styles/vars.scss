@@ -11,3 +11,10 @@ $light-blue: rgb(145, 182, 229);
 $bright-blue: #5dadf7;
 
 $navbar-height: 100px;
+
+:export {
+    graybackground: $gray-background;
+    gray3: $gray3;
+    gray2: $gray2;
+    gray1: $gray1;
+}

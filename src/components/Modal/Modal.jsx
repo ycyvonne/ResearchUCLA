@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import './style.scss';
+import { visible } from 'ansi-colors';
 
-class Button extends Component {
+class Modal extends Component {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            <div className="button-div"
+            <div className="modal-div"
                 style={{backgroundColor: this.props.backgroundColor,
                         color: this.props.textColor,
-                        borderColor: this.props.borderColor }}
+                        borderColor: this.props.borderColor,
+                        visibility: this.props.state}}
                 onClick={this.props.onClick}>
                 {this.props.children}
             </div>
         )
     }
 }
-export default Button;
+export default Modal;

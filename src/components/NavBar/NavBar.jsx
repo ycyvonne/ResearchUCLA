@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import uclaLogo from '../../ucla-samueli-logo-white.png';
-import './NavBar.scss';
+import './style.scss';
 import Button from '../Button/Button';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class NavBar extends Component {
     constructor(props) {
@@ -35,10 +36,11 @@ class NavBar extends Component {
         return (
             <div>
                 <div id="navbar-wrapper" className={this.state.toggled ? "toggled mobile-only " : "mobile-only"}>
-                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossOrigin="anonymous"></link>
-                    <button id="toggleButton" onClick={this.toggleMenuMobile}>
-                        <i className="fas fa-bars fa-2x"></i>
-                    </button>
+                    <div id="toggleButton">
+                        <Button onClick={this.toggleMenuMobile} backgroundColor="black" textColor="white">
+                            <FontAwesomeIcon icon="bars" size="3x"/>
+                        </Button>
+                    </div>
                     <div id="title-mobile">
                         <style>@import url('https://fonts.googleapis.com/css?family=Montserrat');</style>
                         <Link to="/">
@@ -63,9 +65,9 @@ class NavBar extends Component {
                             </div>
                         </div>
                     </div>
-                    <Button onClick={this.loginButton} backgroundColor="#8caaaf" textColor="#ffcac1" borderColor="#c1ffef">
+                    {/* <Button onClick={this.loginButton} backgroundColor="#8caaaf" textColor="#ffcac1" borderColor="#c1ffef">
                         <p>EXAMPLE</p>
-                    </Button>
+                    </Button> */}
                 </div>
 
                 <div id="navbar-wrapper" className="desktop-only">

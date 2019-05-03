@@ -1,0 +1,27 @@
+@import "../../styles/vars.scss";
+@import "../../styles/fonts.scss";
+@import "../../styles/breakpoints.scss";
+
+.modal-div{
+    height: auto;
+    border: 0.8px;
+    border-color: $gray3;
+    border-style: solid;
+    text-align: center;
+    padding: 0.5vw 1vw;
+    color: black;
+    background-color: $gray-background;
+    opacity: 100%;
+    border-radius: 5px;
+    position: absolute;
+    font-size: 10pt;
+    p {
+        padding: 2px;
+    }
+}
+
+@media only screen and (max-width: $bp-med) {
+    .modal-div{
+        
+    }
+}
