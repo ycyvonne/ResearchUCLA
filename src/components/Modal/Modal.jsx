@@ -10,39 +10,41 @@ class Modal extends Component {
         }         
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({open: nextProps.open})
+    }
+
     show = () => {
         this.setState({ open: true });
         document.body.classList.add('modal-visible');
     }
 
-    close = (e) => {
-        e.preventDefault();
+    close = () => {
         this.setState({ open: false });
         document.body.classList.remove('modal-visible');
+        this.props.closeModal();
     }
 
 
     handleClick= (e)=> {
-        if (e.target.className === 'modal') {
-            this.close(e);
+        if (e.target.className === "modal-wrapper") {
+            this.close();
         }
-    }
-    
-    componentDidMount(){
-        this.show();
     }
 
     render() {
         return (
             <div>
                 <div style={{display: + this.state.open ? 'inline' : 'none'}} onClick={this.handleClick}>
-                {console.log(this.state.open)}
-                    <div className="modal">
-                        <div className="modal-content" >
-                            <p>Just a random modal!</p>
+                    <div className="modal-filter"/>
+                    <div className="modal-wrapper">
+                        <div className="modal" >
+                            <div className="button-wrapper">
+                                <p className="close-button" onClick={this.close} >x</p>
+                            </div>
+                            {this.props.children}
                         </div>
                     </div>
-                    <div className="modal-filter"/>
                 </div>
             </div>
         );

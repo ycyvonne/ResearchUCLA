@@ -1,4 +1,5 @@
-.modal{
+@import "../../styles/vars.scss";
+.modal-wrapper{
     position: fixed;
     height: 100%;
     width: 100%;
@@ -9,13 +10,36 @@
     z-index: 1000;
     overflow: auto;
     border: 3px solid black;
+
+    .modal{
+        margin: 120px;
+        padding: 20px;
+        background: #fff;
+        overflow: auto;
+
+        .button-wrapper{
+            width: 100%;
+            align-content: right;
+            display: inline-block;
+        }
+        
+        .close-button{
+            float: right;
+            width:20px;
+            height: 20px;
+            background-color: $gray1;
+            text-align: center;
+        }
+
+        .close-button:hover{
+            background-color: $gray2;
+        }
+    }
+
+    
 }
 
-.modal-content{
-    margin: 120px;
-    padding: 20px;
-    background: #fff;
-}
+
 
 .modal-filter {
     position: fixed;
@@ -24,7 +48,7 @@
     bottom: 0;
     left: 0;
     background-color: #000;
-    opacity: 0.50;    
+    opacity: 0.80;    
     z-index: 900;
 }
 
