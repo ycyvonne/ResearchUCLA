@@ -10,12 +10,16 @@
     z-index: 1000;
     overflow: auto;
     border: 3px solid black;
+    text-align: center;
 
     .modal{
+        display: inline-block;
         margin: 120px;
         padding: 20px;
         background: #fff;
         overflow: auto;
+        width: auto;
+        border: 3px solid $gray2;
 
         .button-wrapper{
             width: 100%;
@@ -34,11 +38,8 @@
         .close-button:hover{
             background-color: $gray2;
         }
-    }
-
-    
+    }   
 }
-
 
 
 .modal-filter {
@@ -50,6 +51,11 @@
     background-color: #000;
     opacity: 0.80;    
     z-index: 900;
+
+    #list{
+        background-color: #fff;
+        opacity: 0; 
+    }
 }
 
 body.modal-visible{

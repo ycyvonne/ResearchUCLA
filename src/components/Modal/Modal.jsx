@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import './style.scss';
+import "../../styles/vars.scss";
 
 class Modal extends Component {
 
     constructor(props) {
         super(props);
         this.state= {
-            open: this.props.open
+            open: this.props.open,  // color, type 
+            type: this.props.type,  //entire-screen, in-place
+            background_color: this.props.background_color, //color
+            blur: this.props.blur // true, false
+            
         }         
     }
 
@@ -15,19 +20,26 @@ class Modal extends Component {
     }
 
     show = () => {
-        this.setState({ open: true });
+        this.setState({ open: true },() => {
+            document.addEventListener('click', this.close);
+          });
         document.body.classList.add('modal-visible');
     }
 
     close = () => {
-        this.setState({ open: false });
+        this.setState({ open: false },() => {
+            document.removeEventListener('click', this.closeMenu);
+          });
         document.body.classList.remove('modal-visible');
         this.props.closeModal();
     }
 
 
     handleClick= (e)=> {
-        if (e.target.className === "modal-wrapper") {
+    // if (e.target.className === "modal-wrapper") {
+    //     this.close();
+    // }
+        if (!this.node.contains(e.target)){
             this.close();
         }
     }
@@ -35,10 +47,10 @@ class Modal extends Component {
     render() {
         return (
             <div>
-                <div style={{display: + this.state.open ? 'inline' : 'none'}} onClick={this.handleClick}>
-                    <div className="modal-filter"/>
+                <div style={{display: this.state.open ? 'inline' : 'none'}} onClick={this.handleClick}>
+                    <div style={{opacity: this.state.blur ? 0.80 : 0}} className="modal-filter" />
                     <div className="modal-wrapper">
-                        <div className="modal" >
+                        <div ref={node=>{this.node=node}} style={{background: this.state.background_color, margin: this.state.type=='entire-screen'? 120 : 0}}className="modal" >
                             <div className="button-wrapper">
                                 <p className="close-button" onClick={this.close} >x</p>
                             </div>
