@@ -4,7 +4,6 @@ import * as database from 'firebase/database'
 
 const API_KEY = process.env.REACT_APP_FIREBASE_API_KEY;
 
-console.log("hello",API_KEY)
 const firebaseApp = firebase.initializeApp({
     apiKey: API_KEY,
     authDomain: "research-ucla.firebaseapp.com",

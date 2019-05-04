@@ -7,7 +7,6 @@ import ResourcesPage from '../../pages/ResourcesPage/ResourcesPage';
 import LoginPage from '../../pages/LoginPage/LoginPage';
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import Page from '../../components/Page/Page';
-import Auth from '../../components/Auth';
 import base from '../../base';
 import {provider} from '../../base';
 import firebase from 'firebase'
@@ -23,7 +22,6 @@ class Main extends Component {
         this.state = {
             cards: [],
             user:false,
-            redirectAuth: false
         }
 
     }
@@ -39,7 +37,6 @@ class Main extends Component {
           if (user) {
             googleAuth.isAuthenticated = true;
             this.setState({redirectAuth: true})
-            // return <Redirect '/admin'
           } else {
             googleAuth.isAuthenticated = false;
           }
@@ -51,28 +48,6 @@ class Main extends Component {
 
     login = () =>  {
         firebase.auth().signInWithRedirect(provider);
-        firebase.auth()
-        .getRedirectResult()
-        .then((result) => {
-            if (result.credential) {
-              // This gives you a Google Access Token. You can use it to access the Google API.
-              var token = result.credential.accessToken;
-              // ...
-              console.log(token)
-            }
-            // The signed-in user info.
-            var user = result.user;
-            console.log(result)
-          }).catch((error) => {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
-            // ...
-          });
     }
     
     logout = () => {
