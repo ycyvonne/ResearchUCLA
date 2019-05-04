@@ -13,6 +13,9 @@ class LoginPage extends Component {
         <button onClick={this.props.login}>
    Log in 
         </button>
+        <button onClick={this.props.logout}>
+   Log out 
+        </button>
       </div>
         )
     }

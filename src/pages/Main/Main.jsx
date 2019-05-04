@@ -13,7 +13,7 @@ import {provider} from '../../base';
 import firebase from 'firebase'
 import AdminPage from '../AdminPage';
 
-const fakeAuth = {
+const googleAuth = {
     isAuthenticated: false,
   };
 
@@ -22,7 +22,8 @@ class Main extends Component {
         super(props);
         this.state = {
             cards: [],
-            user:false
+            user:false,
+            redirectAuth: false
         }
 
     }
@@ -33,7 +34,16 @@ class Main extends Component {
             state: 'cards',
             asArray: true
         });
-        
+        firebase.auth().onAuthStateChanged((user) => {
+          console.log('user', user)
+          if (user) {
+            googleAuth.isAuthenticated = true;
+            this.setState({redirectAuth: true})
+            // return <Redirect '/admin'
+          } else {
+            googleAuth.isAuthenticated = false;
+          }
+        });
     }
     componentWillUnmount() {
         base.removeBinding(this.ref);
@@ -48,9 +58,11 @@ class Main extends Component {
               // This gives you a Google Access Token. You can use it to access the Google API.
               var token = result.credential.accessToken;
               // ...
+              console.log(token)
             }
             // The signed-in user info.
             var user = result.user;
+            console.log(result)
           }).catch((error) => {
             // Handle Errors here.
             var errorCode = error.code;
@@ -61,24 +73,34 @@ class Main extends Component {
             var credential = error.credential;
             // ...
           });
-       
+    }
+    
+    logout = () => {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.setState({ user: null })
+        })
+        .catch(error => {
+          console.log('logout error:', error)
+        })
     }
 
-
     render() {
-        return (
-            <Router>
-               
-                <Page>
-                    <Route path="/research" render={() => (<ResearchPage cards={this.state.cards} />)} />
-                    <Route path="/faculty" component={FacultyPage} />
-                    <Route path="/news" component={NewsPage} />
-                    <Route path="/resources" component={ResourcesPage} />
-                    <PrivateRoute path="/admin" rcomponent={AdminPage} />
-                    <Route path="/login" render={() => (<LoginPage login={this.login} />)} />
-                </Page>
-            </Router>
-        );
+      return (
+          <Router>
+              
+              <Page>
+                  <Route path="/research" render={() => (<ResearchPage cards={this.state.cards} />)} />
+                  <Route path="/faculty" component={FacultyPage} />
+                  <Route path="/news" component={NewsPage} />
+                  <Route path="/resources" component={ResourcesPage} />
+                  <PrivateRoute path="/admin" component={AdminPage} />
+                  <Route path="/login" render={() => (<LoginPage login={this.login} logout={this.logout} />)} />
+              </Page>
+          </Router>
+      );
     }
 
 }
@@ -88,7 +110,7 @@ function PrivateRoute({ component: Component, ...rest }) {
       <Route
         {...rest}
         render={props =>
-         fakeAuth.isAuthenticated ? (
+         googleAuth.isAuthenticated ? (
             <Component {...props} />
           ) : (
             <Redirect
