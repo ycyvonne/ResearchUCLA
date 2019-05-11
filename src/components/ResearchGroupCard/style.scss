@@ -81,10 +81,80 @@ $card-header-height: 64px;
         margin: 1% 2%;
     }
 
-    .edit-modal {
-        margin-left: 230px;
+    .options-modal {
+        margin-left: 14.8vw;
         margin-top: 35px;
         position: absolute;
+    }
+
+    .edit-modal {
+        position: fixed;
+        .modal-content{
+            padding: 10px;
+            p {
+                text-align: left;
+                font-size: $card-header-font;
+                font-weight: bold;
+                font-family: $body-font;
+            }
+            form {
+                text-align: left;
+                color: $bright-blue;
+                .group-name {
+                    font-size: 1.4em;
+                    margin: 10px 0;
+                    textarea{
+                        font-size: 0.8em;
+                        width: 70%;
+                        height: 18px;
+                        margin: 5px 0; 
+                        border: 0px;
+                        border-bottom: 1.5px dashed $gray1;
+                    }
+                    textarea:focus {
+                        border-bottom: 1.5px dashed $gray3;
+                    }
+                }
+                .group-content {
+                    font-size: 1.4em;
+                    margin: 10px 0;
+                    textarea{
+                        font-size: 0.7em;
+                        width: 300px;
+                        height: 100px;
+                        margin: 5px 0; 
+                        border: 1.5px dashed $gray1;
+                    }
+                    textarea:focus {
+                        border: 1.5px dashed $gray3;
+                    }
+                }
+                .group-courses {
+                    font-size: 1.4em;
+                    margin: 10px 0;
+                    textarea{
+                        font-size: 0.7em;
+                        width: 300px;
+                        height: 50px;
+                        margin: 5px 0;
+                        border: 0px;
+                        border: 1.5px dashed $gray1;
+                    }
+                    textarea:focus {
+                        border: 1.5px dashed $gray3;
+                    }
+                }
+                .save-button {
+                    margin: 5px 0 10px 0;
+                }
+            }
+            textarea {
+                // width: 200px;
+                resize: none;
+                padding: 3px;
+            }
+            
+        }
     }
 }
 
@@ -93,6 +163,11 @@ $card-header-height: 64px;
 @media only screen and (max-width: $bp-med) {
     .card{
         width: 100%;
+    
+        .options-modal {
+            margin-left: 71vw;
+            margin-top: 45px;
+        }
     }
 }
 
