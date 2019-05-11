@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import './style.scss';
 
 export default class Checkbox extends Component {
-    constructor(props){
-        super(props)
-    }
+    
 
     handleSelectItem = (event) => {
         this.props.addSelectedItem(this.props.label, !this.props.selected);

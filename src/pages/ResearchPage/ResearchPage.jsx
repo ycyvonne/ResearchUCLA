@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import ResearchGroupCardList from '../../components/ResearchGroupCardList/ResearchGroupCardList'
 import './style.scss';
 import Filter from '../../components/Filter/Filter'
-import Page from '../../components/Page/Page'
-import { filter } from 'rsvp';
 
 const data =  [{
 	professor: "Adnan Darwiche", 

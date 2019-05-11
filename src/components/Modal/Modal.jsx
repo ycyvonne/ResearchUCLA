@@ -53,9 +53,9 @@ class Modal extends Component {
 
     render() {
 
-        {if(this.state.open)
-            this.show()}
-        const mdl=this.state.type=='entire-screen'?(
+        if(this.state.open)
+            this.show();
+        const mdl=this.state.type==='entire-screen'?(
             <div>
                 <div style={{display: this.state.open ? 'inline' : 'none'}} >
                     <div style={{display: this.state.blur ? 'inline' : 'none'}} className="modal-filter" />
