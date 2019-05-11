@@ -1,4 +1,7 @@
 @import "../../styles/vars.scss";
+@import "../../styles/fonts.scss";
+@import "../../styles/breakpoints.scss";
+
 .modal-wrapper{
     position: fixed;
     height: 100%;
@@ -9,7 +12,6 @@
     left: 0;
     z-index: 1000;
     overflow: auto;
-    border: 3px solid black;
     text-align: center;
 
     .modal{
@@ -19,7 +21,64 @@
         background: #fff;
         overflow: auto;
         width: auto;
-        border: 3px solid $gray2;
+        height: auto;
+        border: 0.8px solid $gray3;
+        text-align: center;
+        padding: 0.2vw 1vw;
+        background-color: $gray-background;
+        opacity: 100%;
+        border-radius: 5px;
+        font-size: 10pt;
+        p {
+            padding: 2px;
+        }
+        .button-wrapper{
+            width: 100%;
+            align-content: right;
+            display: inline-block;
+        }
+        
+        .close-button{
+            float: right;
+            width:20px;
+            height: 20px;
+            background-color: white;
+            text-align: center;
+        }
+
+        .close-button:hover{
+            background-color: $gray2;
+        }
+    }   
+}
+
+.inline-modal-wrapper{
+    position: fixed;
+    height: auto;
+    width: auto;
+    z-index: 1000;
+    overflow: auto;
+    text-align: center;
+    transform: translate(-50%, -50%);
+
+    .modal{
+        display: inline-block;
+        margin: 0px;
+        padding: 20px;
+        background: #fff;
+        overflow: auto;
+        width: auto;
+        height: auto;
+        border: 0.8px solid $gray3;
+        text-align: center;
+        padding: 0.2vw 1vw;
+        background-color: $gray-background;
+        opacity: 100%;
+        border-radius: 5px;
+        font-size: 10pt;
+        p {
+            padding: 2px;
+        }
 
         .button-wrapper{
             width: 100%;
@@ -31,7 +90,7 @@
             float: right;
             width:20px;
             height: 20px;
-            background-color: $gray1;
+            background-color: white;
             text-align: center;
         }
 
