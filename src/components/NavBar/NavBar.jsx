@@ -100,7 +100,8 @@ class NavBar extends Component {
                         <Button onClick={this.loginButton}>
                             <p>LOGIN</p>
                         </Button>
-                        <Button onClick={this.loginButton} backgroundColor="#8caaaf" textColor="#ffcac1" borderColor="#c1ffef">
+                        <Button onClick={this.loginButton} backgroundColor="#8caaaf" textColor="#ffcac1" borderColor="#c1ffef"
+                                hoverTextColor="blue">
                             <p>EXAMPLE</p>
                         </Button>
                     </div>
