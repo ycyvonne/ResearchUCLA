@@ -89,6 +89,13 @@ $card-header-height: 64px;
 
     .edit-modal {
         position: fixed;
+
+        .close-edit-button {
+            text-align: right;
+            float: right;
+            margin-top: 1%;
+        }
+
         .modal-content{
             padding: 10px;
             p {
@@ -146,6 +153,12 @@ $card-header-height: 64px;
                 }
                 .save-button {
                     margin: 5px 0 10px 0;
+                    p {
+                        font-size: 1.5em;
+                    }
+                    p:hover {
+                        color: $bright-blue;
+                    }
                 }
             }
             textarea {
@@ -163,10 +176,14 @@ $card-header-height: 64px;
 @media only screen and (max-width: $bp-med) {
     .card{
         width: 100%;
-    
         .options-modal {
             margin-left: 71vw;
             margin-top: 45px;
+        }
+        .edit-modal {
+            .close-edit-button {
+                margin-right: 2%;
+            }
         }
     }
 }

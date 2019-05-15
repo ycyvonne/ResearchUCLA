@@ -17,6 +17,7 @@ class ResearchGroupCard extends Component {
             edit: "hidden",
             researchGroupEdit: this.props.researchGroup,
             researchGroup: this.props.researchGroup,
+
         }
     }
 
@@ -44,6 +45,12 @@ class ResearchGroupCard extends Component {
         this.setState({
             edit: editState,
             menu: menuState,
+        });
+    }
+
+    closeEditOnClick = () => {
+        this.setState({
+            edit: "hidden",
         });
     }
 
@@ -102,9 +109,15 @@ class ResearchGroupCard extends Component {
                 https://css-tricks.com/intro-firebase-react/ */}
                 <div className="edit-modal">
                     <Modal borderColor={vars.gray1} backgroundColor="white" state={this.state.edit}>
+                        <div className="close-edit-button">
+                            <Button backgroundColor="white" textColor={vars.gray2} borderColor="white" onClick={this.closeEditOnClick}
+                                hoverTextColor="black">
+                                <FontAwesomeIcon icon="times" size="2x" />
+                            </Button>
+                        </div>
                         <div className="modal-content">
                             <p>Edit Information</p>
-                            <form onSubmit={this.handleSubmit}>
+                            <form>
                                 <div className="group-name">
                                     <label >
                                         Group Name
@@ -137,7 +150,12 @@ class ResearchGroupCard extends Component {
                                         </textarea>
                                     </lable>
                                 </div>
-                                <input className="save-button" type="submit" value="Save" />
+                                <div className="save-button">
+                                    <Button backgroundColor="white" textColor={vars.gray2} borderColor="white" onClick={this.handleSubmit}
+                                        hoverTextColor="black">
+                                        <p>Save</p>
+                                    </Button>
+                                </div>
                             </form>
                         </div>
                     </Modal>
