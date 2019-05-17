@@ -41,9 +41,6 @@ class Modal extends Component {
 
 
     handleClick= (e)=> {
-    // if (e.target.className === "modal-wrapper") {
-    //     this.close();
-    // }
         if (this.node.contains(e.target)){
             return;
         }
@@ -55,7 +52,7 @@ class Modal extends Component {
 
         if(this.state.open)
             this.show();
-        const mdl=this.state.type==='entire-screen'?(
+        return this.state.type==='entire-screen'?(
             <div>
                 <div style={{display: this.state.open ? 'inline' : 'none'}} >
                     <div style={{display: this.state.blur ? 'inline' : 'none'}} className="modal-filter" />
@@ -88,9 +85,6 @@ class Modal extends Component {
                 </div>
             </div>
         );
-            
-        
-        return mdl;
     }
 }
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import uclaLogo from '../../ucla-samueli-logo-white.png';
 import './NavBar.scss';
-import { BrowserRouter as  Link } from "react-router-dom";
+import { BrowserRouter as  Router, Route,Link } from "react-router-dom";
 
 class NavBar extends Component {
     constructor(props) {

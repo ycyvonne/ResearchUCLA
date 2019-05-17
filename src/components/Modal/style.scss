@@ -59,6 +59,9 @@
     z-index: 1000;
     overflow: auto;
     text-align: center;
+    -webkit-transform: translate(-50%, -50%); /*Webkit*/
+    -ms-transform: translate(-50%, -50%); /*IE, Edge*/
+    -moz-transform: translate(-50%, -50%); /*Firefox*/
     transform: translate(-50%, -50%);
 
     .modal{

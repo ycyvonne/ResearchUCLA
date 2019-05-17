@@ -6,6 +6,10 @@ import NavBar from '../../components/NavBar/NavBar';
 
 class Page extends Component {
 
+    constructor(props){
+        super(props);
+    }
+
     render() {
         return (
             <div className = "page">
