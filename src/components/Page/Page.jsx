@@ -5,7 +5,8 @@ import NavBar from '../../components/NavBar/NavBar';
 // The Page Component appropriately renders the NavBar and any children components
 
 class Page extends Component {
-    constructor(props) {
+
+    constructor(props){
         super(props);
     }
 
