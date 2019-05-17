@@ -4,7 +4,6 @@ import FacultyPage from '../../pages/FacultyPage/FacultyPage';
 import ResearchPage from '../../pages/ResearchPage/ResearchPage';
 import NewsPage from '../../pages/NewsPage/NewsPage';
 import ResourcesPage from '../../pages/ResourcesPage/ResourcesPage';
-import LoginPage from '../../pages/LoginPage/LoginPage';
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import Page from '../../components/Page/Page';
 import base from '../../base';
