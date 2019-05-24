@@ -13,6 +13,7 @@
     z-index: 1000;
     overflow: auto;
     text-align: center;
+    overflow-y: hidden;
 
     .modal{
         display: inline-block;
@@ -21,7 +22,7 @@
         background: #fff;
         overflow: auto;
         width: auto;
-        height: auto;
+        height: 62%;
         border: 0.8px solid $gray3;
         text-align: center;
         padding: 0.2vw 1vw;
@@ -33,9 +34,9 @@
             padding: 2px;
         }
         .button-wrapper{
-            width: 100%;
-            align-content: right;
-            display: inline-block;
+            text-align: right;
+            float: right;
+            margin-top: 1%;
         }
         
         .close-button{
@@ -53,10 +54,10 @@
 }
 
 .inline-modal-wrapper{
-    position: fixed;
+    position: absolute;
     height: auto;
     width: auto;
-    z-index: 1000;
+    // z-index: 1000;
     overflow: auto;
     text-align: center;
     -webkit-transform: translate(-50%, -50%); /*Webkit*/
@@ -84,9 +85,9 @@
         }
 
         .button-wrapper{
-            width: 100%;
-            align-content: right;
-            display: inline-block;
+            text-align: right;
+            float: right;
+            margin-top: 1%;
         }
         
         .close-button{
@@ -120,6 +121,6 @@
     }
 }
 
-body.modal-visible{
-    overflow-y: hidden;
+body.modal-filter{
+    // overflow-y: hidden;
 }

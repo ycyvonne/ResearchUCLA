@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom
 import Page from '../../components/Page/Page';
 import base from '../../base';
 import {provider} from '../../base';
-import firebase from 'firebase'
+import firebase from 'firebase';
 import AdminPage from '../AdminPage';
 
 const googleAuth = {

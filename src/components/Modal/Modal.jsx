@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './style.scss';
 import "../../styles/vars.scss";
+import Button from "../Button/Button";
+import vars from '../../styles/vars.scss';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -57,11 +59,15 @@ class Modal extends Component {
                 <div style={{display: this.state.open ? 'inline' : 'none'}} >
                     <div style={{display: this.state.blur ? 'inline' : 'none'}} className="modal-filter" />
                     <div className="modal-wrapper">
-                        <div ref={node=>{this.node=node}} style={{background: this.state.background_color}}className="modal" >
+                        <div ref={node=>{this.node=node}} style={{background: this.state.background_color}} className="modal" >
                             <div className="button-wrapper">
-                            <FontAwesomeIcon
-                            className= "close-button"
-                            icon={faTimesCircle}  onClick={this.close}/>
+                                <Button backgroundColor="white" textColor={vars.gray2} borderColor="white" onClick={this.close}
+                                    hoverTextColor="black">
+                                    <FontAwesomeIcon icon="times" size="2x" />
+                                </Button>
+                                {/* <FontAwesomeIcon
+                                className= "close-button"
+                                icon="times"  onClick={this.close}/> */}
                             </div>
                             {this.props.children}
                         </div>
@@ -74,11 +80,11 @@ class Modal extends Component {
                 <div  style={{display: this.state.open ? 'inline' : 'none'}} >
                     <div ref={node=>{this.node=node}} className="inline-modal-wrapper">
                         <div  style={{background: this.state.background_color}}className="modal" >
-                            <div className="button-wrapper">
+                            {/* <div className="button-wrapper">
                             <FontAwesomeIcon
                             className= "close-button"
                             icon={faTimesCircle}  onClick={this.close}/>
-                            </div>
+                            </div> */}
                             {this.props.children}
                         </div>
                     </div>

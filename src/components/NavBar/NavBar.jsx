@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import uclaLogo from '../../ucla-samueli-logo-white.png';
-import './NavBar.scss';
-import Button from '../Button/Button';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './style.scss';
 import Button from '../Button/Button';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -99,12 +96,12 @@ class NavBar extends Component {
                             <div className="menu-item">
                                 <Link to="/news"><p>NEWS</p></Link>
                             </div>
-                        </div>
-                        <div className="menu-item">
+                            <div className="menu-item">
                             <Link to="/admin"><p>ADMIN</p></Link>
-                        </div>
-                        <div className="menu-item">
-                            <Link to="/login"><p>LOGIN</p></Link>
+                            </div>
+                            <div className="menu-item">
+                                <Link to="/login"><p>LOGIN</p></Link>
+                            </div>
                         </div>
                         <Button onClick={this.loginButton}>
                             <p>LOGIN</p>

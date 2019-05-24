@@ -82,13 +82,14 @@ $card-header-height: 64px;
     }
 
     .options-modal {
-        margin-left: 14.8vw;
-        margin-top: 35px;
+        margin-left: 17.8vw;
+        margin-top: 70px;
         position: absolute;
     }
 
     .edit-modal {
         position: fixed;
+        z-index: 1000;
 
         .close-edit-button {
             text-align: right;
@@ -177,8 +178,8 @@ $card-header-height: 64px;
     .card{
         width: 100%;
         .options-modal {
-            margin-left: 71vw;
-            margin-top: 45px;
+            margin-left: 75vw;
+            margin-top: 75px;
         }
         .edit-modal {
             .close-edit-button {

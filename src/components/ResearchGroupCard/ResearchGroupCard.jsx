@@ -13,8 +13,8 @@ class ResearchGroupCard extends Component {
         super(props);
         this.props = props;
         this.state = {
-            menu: "hidden",
-            edit: "hidden",
+            menu: false,
+            edit: false,
             researchGroupEdit: this.props.researchGroup,
             researchGroup: this.props.researchGroup,
 
@@ -23,10 +23,10 @@ class ResearchGroupCard extends Component {
 
     menuOnClick = () => {
         var menuState = this.state.menu;
-        if (menuState === "hidden") {
-            menuState = "visible";
+        if (menuState === false) {
+            menuState = true;
         } else {
-            menuState = "hidden";
+            menuState = false;
         }
         this.setState({
             menu: menuState,
@@ -36,11 +36,11 @@ class ResearchGroupCard extends Component {
     editOnClick = () => {
         var editState = this.state.edit;
         var menuState;
-        if (editState === "hidden") {
-            editState = "visible";
-            menuState = "hidden";
+        if (editState === false) {
+            editState = true;
+            menuState = false;
         } else {
-            editState = "hidden"
+            editState = false
         }
         this.setState({
             edit: editState,
@@ -50,7 +50,7 @@ class ResearchGroupCard extends Component {
 
     closeEditOnClick = () => {
         this.setState({
-            edit: "hidden",
+            edit: false,
             researchGroupEdit: this.state.researchGroup,
         });
         var researchGroupEdit = this.refs.researchGroupEdit;
@@ -61,6 +61,7 @@ class ResearchGroupCard extends Component {
     deleteOnClick = () => {
         var refKey = "/cards/" + this.props.researchGroup;
         const cardRef = firebaseApp.database().ref(refKey);
+        console.log(cardRef);
         cardRef.remove()
             .then(function () {
                 console.log("Remove succeeded.")
@@ -68,6 +69,12 @@ class ResearchGroupCard extends Component {
             .catch(function (error) {
                 console.log("Remove failed: " + error.message)
             });
+    }
+
+    closeMenuModal = () => {
+        this.setState({
+            menu: false,
+        })
     }
 
     handleChange = (e) => {
@@ -80,11 +87,10 @@ class ResearchGroupCard extends Component {
     handleSubmit = (e) => {
         this.setState({
             researchGroup: this.state.researchGroupEdit,
-            edit: "hidden",
+            edit: false,
         })
         e.preventDefault();
     }
-
 
     render() {
         return (
@@ -96,7 +102,8 @@ class ResearchGroupCard extends Component {
                     </Button>
                 </div>
                 <div className="options-modal">
-                    <Modal borderColor={vars.gray1} backgroundColor="white" state={this.state.menu}>
+                    <Modal borderColor={vars.gray1} background_color="white" open={this.state.menu} 
+                        closeModal={this.closeMenuModal} type="in-place">
                         <div className="options-wrapper">
                             <Button backgroundColor="white" textColor={vars.gray3} borderColor="white" onClick={this.editOnClick}>
                                 <p>EDIT</p>
@@ -112,12 +119,13 @@ class ResearchGroupCard extends Component {
                 {/* https://reactjs.org/docs/forms.html
                 https://css-tricks.com/intro-firebase-react/ */}
                 <div className="edit-modal">
-                    <Modal borderColor={vars.gray1} backgroundColor="white" state={this.state.edit}>
+                    <Modal borderColor={vars.gray1} background_color="white" open={this.state.edit} 
+                        closeModal={this.closeEditOnClick} type="entire-screen" blur={true}>
                         <div className="close-edit-button">
-                            <Button backgroundColor="white" textColor={vars.gray2} borderColor="white" onClick={this.closeEditOnClick}
+                            {/* <Button backgroundColor="white" textColor={vars.gray2} borderColor="white" onClick={this.closeEditOnClick}
                                 hoverTextColor="black">
                                 <FontAwesomeIcon icon="times" size="2x" />
-                            </Button>
+                            </Button> */}
                         </div>
                         <div className="modal-content">
                             <p>Edit Information</p>
@@ -169,7 +177,7 @@ class ResearchGroupCard extends Component {
                     <p>{this.props.professor}</p>
                 </div>
                 <div className="card-title">
-                    <p>{this.state.researchGroup}</p>
+                    <p>{this.props.researchGroup}</p>
                 </div>
                 <div className="card-body">
                     <p>{this.props.content}</p>
