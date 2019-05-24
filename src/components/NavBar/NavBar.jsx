@@ -96,12 +96,15 @@ class NavBar extends Component {
                             <div className="menu-item">
                                 <Link to="/news"><p>NEWS</p></Link>
                             </div>
+<<<<<<< HEAD
                             <div className="menu-item">
                             <Link to="/admin"><p>ADMIN</p></Link>
                             </div>
                             <div className="menu-item">
                                 <Link to="/login"><p>LOGIN</p></Link>
                             </div>
+=======
+>>>>>>> c0182e339d12c15a952edb32848c1d6d9a871963
                         </div>
                         <Button onClick={this.loginButton}>
                             <p>LOGIN</p>

@@ -61,7 +61,6 @@ class ResearchGroupCard extends Component {
     deleteOnClick = () => {
         var refKey = "/cards/" + this.props.researchGroup;
         const cardRef = firebaseApp.database().ref(refKey);
-        console.log(cardRef);
         cardRef.remove()
             .then(function () {
                 console.log("Remove succeeded.")
@@ -91,6 +90,22 @@ class ResearchGroupCard extends Component {
         })
         e.preventDefault();
     }
+
+    handleChange = (e) => {
+        // Update values of card 
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    handleSubmit = (e) => {
+        this.setState({
+            researchGroup: this.state.researchGroupEdit,
+            edit: "hidden",
+        })
+        e.preventDefault();
+    }
+
 
     render() {
         return (
@@ -177,7 +192,7 @@ class ResearchGroupCard extends Component {
                     <p>{this.props.professor}</p>
                 </div>
                 <div className="card-title">
-                    <p>{this.props.researchGroup}</p>
+                    <p>{this.state.researchGroup}</p>
                 </div>
                 <div className="card-body">
                     <p>{this.props.content}</p>

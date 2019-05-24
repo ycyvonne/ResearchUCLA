@@ -2,6 +2,73 @@ import React, { Component } from 'react';
 import ResearchGroupCardList from '../../components/ResearchGroupCardList/ResearchGroupCardList'
 import './style.scss';
 import Filter from '../../components/Filter/Filter'
+<<<<<<< HEAD
+=======
+import Page from '../../components/Page/Page'
+import { filter } from 'rsvp';
+
+const data = [{
+  professor: "Adnan Darwiche",
+  researchGroup: "Automated Reasoning Group",
+  content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+  courses: ["CS 32"],
+  areas: ["Foundations", "Algorithms", "Treeing"]
+}, {
+  professor: "Adnan Darwiche",
+  researchGroup: "Automated Reasoning Group",
+  content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+  courses: ["CS M146", "CS 161"],
+  areas: ["Algorithms"]
+}, {
+  professor: "Adnan Darwiche",
+  researchGroup: "Automated Reasoning Group",
+  content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+  courses: ["CS M146", "CS 161", "CNNs", "RNNs"],
+  areas: ["Foundations", "Algorithms"]
+}, {
+  professor: "Adnan Darwiche",
+  researchGroup: "Automated Reasoning Group",
+  content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+  courses: ["CS M146", "CS 161", "RNNs"],
+  areas: ["Algorithms"]
+}, {
+  professor: "Adnan Darwiche",
+  researchGroup: "Automated Reasoning Group",
+  content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+  courses: ["CS M146", "CS 161", "RNNs"],
+  areas: ["Algorithms"]
+}, {
+  professor: "Eggert",
+  researchGroup: "Automated Reasoning Group",
+  content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+  courses: ["CS M146", "CS 161", "CS 111"],
+  areas: ["Algorithms", "Surfing"]
+}, {
+  professor: "Adnan Darwiche",
+  researchGroup: "Automated Reasoning Group",
+  content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+  courses: ["CS M146", "CS 161", "RNNs"],
+  areas: []
+}, {
+  professor: "Adnan Darwiche",
+  researchGroup: "Automated Reasoning Group",
+  content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+  courses: ["CS M146", "CS 161", "RNNs"],
+  areas: []
+}, {
+  professor: "Adnan Darwiche",
+  researchGroup: "Automated Reasoning Group",
+  content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+  courses: ["CS M146", "CS 161", "RNNs"],
+  areas: []
+}, {
+  professor: "Adnan Darwiche",
+  researchGroup: "Automated Reasoning Group",
+  content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+  courses: [],
+  areas: []
+}]
+>>>>>>> c0182e339d12c15a952edb32848c1d6d9a871963
 
 class ResearchPage extends Component {
   constructor(props) {
@@ -9,7 +76,11 @@ class ResearchPage extends Component {
     this.state = {
       options: [],
       filters: { 'Research Area': [], 'Impact Area': [], 'Classes & Skills': [] },
+<<<<<<< HEAD
       cards: this.props.cards
+=======
+      data: data
+>>>>>>> c0182e339d12c15a952edb32848c1d6d9a871963
     }
     this.loadFilteredOptions = this.loadFilteredOptions.bind(this);
   }
@@ -42,10 +113,17 @@ class ResearchPage extends Component {
     }, () => this.filterData());
 
   }
+<<<<<<< HEAD
 
 
   filterData() {
     const availableData = this.state.cards;
+=======
+
+
+  filterData() {
+    const availableData = data;
+>>>>>>> c0182e339d12c15a952edb32848c1d6d9a871963
     const filters = this.state.options;
     if (filters.length < 1) {
       this.setState({
