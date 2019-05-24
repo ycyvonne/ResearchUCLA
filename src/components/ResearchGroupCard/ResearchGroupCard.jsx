@@ -51,7 +51,11 @@ class ResearchGroupCard extends Component {
     closeEditOnClick = () => {
         this.setState({
             edit: "hidden",
+            researchGroupEdit: this.state.researchGroup,
         });
+        var researchGroupEdit = this.refs.researchGroupEdit;
+        var originalResearchGroup = this.state.researchGroup;
+        researchGroupEdit.value = originalResearchGroup;
     }
 
     deleteOnClick = () => {
@@ -124,6 +128,7 @@ class ResearchGroupCard extends Component {
                                         <br/>
                                     <textarea
                                             name="researchGroupEdit"
+                                            ref="researchGroupEdit"
                                             type="text"
                                             onChange={this.handleChange}>
                                             {this.props.researchGroup}
