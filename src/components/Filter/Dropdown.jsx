@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './style.scss';
 import Checkbox from './Checkbox'
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+// import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Button from "../Button/Button";
+import vars from '../../styles/vars.scss';
 
 export default class Dropdown extends Component {
     constructor(props){
@@ -82,10 +84,13 @@ export default class Dropdown extends Component {
                 >
                     <div className="mobile-dropdown">
                         <div className= "dropdown-wrapper">
-                        <FontAwesomeIcon
-                            className= "icon"
-                            icon={faTimesCircle} size="2x"
-                            onClick={ () => this.props.toggleListTitle('mobile')} />
+                            <div className="button-wrapper">
+                                <Button backgroundColor="white" textColor={vars.gray2} borderColor="white" onClick={
+                                    () => this.props.toggleListTitle('mobile')}
+                                        hoverTextColor="black">
+                                        <FontAwesomeIcon icon="times" size="2x" />
+                                </Button>
+                            </div>
                         <ul className="list" >
                             {this.createCheckboxes()}
                         </ul>
