@@ -13,7 +13,6 @@
     z-index: 1000;
     overflow: auto;
     text-align: center;
-    overflow-y: hidden;
 
     .modal{
         display: inline-block;
@@ -22,7 +21,7 @@
         background: #fff;
         overflow: auto;
         width: auto;
-        height: 62%;
+        height: auto;
         border: 0.8px solid $gray3;
         text-align: center;
         padding: 0.2vw 1vw;
@@ -121,6 +120,6 @@
     }
 }
 
-body.modal-filter{
-    // overflow-y: hidden;
+body.modal-visible{
+    overflow-y: hidden;
 }
