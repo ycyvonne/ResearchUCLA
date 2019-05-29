@@ -91,22 +91,6 @@ class ResearchGroupCard extends Component {
         e.preventDefault();
     }
 
-    handleChange = (e) => {
-        // Update values of card 
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
-
-    handleSubmit = (e) => {
-        this.setState({
-            researchGroup: this.state.researchGroupEdit,
-            edit: "hidden",
-        })
-        e.preventDefault();
-    }
-
-
     render() {
         return (
             <div className="card">
