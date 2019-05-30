@@ -33,9 +33,10 @@
             padding: 2px;
         }
         .button-wrapper{
-            width: 100%;
-            align-content: right;
-            display: inline-block;
+            width:100%;
+            text-align: right;
+            float: right;
+            margin-top: 1%;
         }
         
         .close-button{
@@ -53,10 +54,10 @@
 }
 
 .inline-modal-wrapper{
-    position: fixed;
+    position: absolute;
     height: auto;
     width: auto;
-    z-index: 1000;
+    // z-index: 1000;
     overflow: auto;
     text-align: center;
     -webkit-transform: translate(-50%, -50%); /*Webkit*/
@@ -84,9 +85,10 @@
         }
 
         .button-wrapper{
-            width: 100%;
-            align-content: right;
-            display: inline-block;
+            width:100%;
+            text-align: right;
+            float: right;
+            margin-top: 1%;
         }
         
         .close-button{
@@ -120,6 +122,6 @@
     }
 }
 
-body.modal-visible{
+body.modal-visible-entire-screen{
     overflow-y: hidden;
 }

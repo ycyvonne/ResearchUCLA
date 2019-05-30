@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import uclaLogo from '../../ucla-samueli-logo-white.png';
-import './NavBar.scss';
-import { BrowserRouter as  Router, Route,Link } from "react-router-dom";
+import './style.scss';
+import Button from '../Button/Button';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class NavBar extends Component {
     constructor(props) {
@@ -18,8 +20,6 @@ class NavBar extends Component {
     toggleMenu = () => {
         this.setState({
             toggled: !this.state.toggled
-        }, () => {
-            console.log('state was changed!', this.state.toggled);
         })
     }
 
@@ -28,44 +28,20 @@ class NavBar extends Component {
         this.moveMenu();
     }
 
+    loginButton = () => {
+        console.log("Login button clicked!");
+    }
+
     render() {
         return (
             <div>
-            <div id="navbar-wrapper" className={this.state.toggled ? "toggled mobile-only " : "mobile-only"}>
-                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"></link>
-                <button id="toggleButton" onClick={this.toggleMenuMobile}>
-                    <i className="fas fa-bars fa-2x"></i>
-                </button>
-                <div id="title-mobile">
-                    <style>@import url('https://fonts.googleapis.com/css?family=Montserrat');</style>
-                    <Link to="/">
-                        <h1>ARTIFICIAL INTELLIGENCE + <br />
-                            MACHINE LEARNING
-                        </h1>
-                    </Link>
-                </div>
-                <div id="menu-mobile">
-                    <div id="menu-item-wrapper-mobile">
-                        <div className="menu-item-mobile">
-                            <Link to="/research"><p>RESEARCH</p></Link>
-                        </div>
-                        <div className="menu-item-mobile">
-                            <Link to="/faculty"><p>FACULTY</p></Link>
-                        </div>
-                        <div className="menu-item-mobile">
-                            <Link to="/resources"><p>RESOURCES</p></Link>
-                        </div>
-                        <div className="menu-item-mobile">
-                            <Link to="/news"><p>NEWS</p></Link>
-                        </div>
+                <div id="navbar-wrapper" className={this.state.toggled ? "toggled mobile-only " : "mobile-only"}>
+                    <div id="toggleButton">
+                        <Button onClick={this.toggleMenuMobile} backgroundColor="black" textColor="white">
+                            <FontAwesomeIcon icon="bars" size="3x"/>
+                        </Button>
                     </div>
-                </div>
-
-            </div>
-
-            <div id="navbar-wrapper" className="desktop-only">
-                <div id="navbar">
-                    <div id="title">
+                    <div id="title-mobile">
                         <style>@import url('https://fonts.googleapis.com/css?family=Montserrat');</style>
                         <Link to="/">
                             <h1>ARTIFICIAL INTELLIGENCE + <br />
@@ -73,32 +49,62 @@ class NavBar extends Component {
                         </h1>
                         </Link>
                     </div>
-                    <div id="logo">
-                        <img src={uclaLogo} alt="UCLA" />
-                    </div>
-                    <div id="menu">
-                        <div className="menu-item">
-                            <Link to="/research"><p>RESEARCH</p></Link>
-                        </div>
-                        <div className="menu-item">
-                            <Link to="/faculty"><p>FACULTY</p></Link>
-                        </div>
-                        <div className="menu-item">
-                            <Link to="/resources"><p>RESOURCES</p></Link>
-                        </div>
-                        <div className="menu-item">
-                            <Link to="/news"><p>NEWS</p></Link>
-                        </div>
-                        <div className="menu-item">
-                            <Link to="/admin"><p>ADMIN</p></Link>
-                        </div>
-                        <div className="menu-item">
-                            <Link to="/login"><p>LOGIN</p></Link>
+                    <div id="menu-mobile">
+                        <div id="menu-item-wrapper-mobile">
+                            <div className="menu-item-mobile">
+                                <Link to="/research"><p>RESEARCH</p></Link>
+                            </div>
+                            <div className="menu-item-mobile">
+                                <Link to="/faculty"><p>FACULTY</p></Link>
+                            </div>
+                            <div className="menu-item-mobile">
+                                <Link to="/resources"><p>RESOURCES</p></Link>
+                            </div>
+                            <div className="menu-item-mobile">
+                                <Link to="/news"><p>NEWS</p></Link>
+                            </div>
                         </div>
                     </div>
-
+                    {/* <Button onClick={this.loginButton} backgroundColor="#8caaaf" textColor="#ffcac1" borderColor="#c1ffef">
+                        <p>EXAMPLE</p>
+                    </Button> */}
                 </div>
-            </div>
+
+                <div id="navbar-wrapper" className="desktop-only">
+                    <div id="navbar">
+                        <div id="title">
+                            <style>@import url('https://fonts.googleapis.com/css?family=Montserrat');</style>
+                            <Link to="/">
+                                <h1>ARTIFICIAL INTELLIGENCE + <br />
+                                    MACHINE LEARNING
+                        </h1>
+                            </Link>
+                        </div>
+                        <div id="logo">
+                            <img src={uclaLogo} />
+                        </div>
+                        <div id="menu">
+                            <div className="menu-item">
+                                <Link to="/research"><p>RESEARCH</p></Link>
+                            </div>
+                            <div className="menu-item">
+                                <Link to="/faculty"><p>FACULTY</p></Link>
+                            </div>
+                            <div className="menu-item">
+                                <Link to="/resources"><p>RESOURCES</p></Link>
+                            </div>
+                            <div className="menu-item">
+                                <Link to="/news"><p>NEWS</p></Link>
+                            </div>
+                            <div className="menu-item">
+                            <Link to="/admin"><p>ADMIN</p></Link>
+                            </div>
+                            <div className="menu-item">
+                                <Link to="/login"><p>LOGIN</p></Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

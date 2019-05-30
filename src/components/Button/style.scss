@@ -1,0 +1,43 @@
+@import "../../styles/vars.scss";
+@import "../../styles/fonts.scss";
+@import "../../styles/breakpoints.scss";
+
+.button-div{
+    // width: 3.5vw;
+    height: auto;
+    border: 0.8px;
+    border-color: black;
+    border-style: solid;
+    text-align: center;
+    padding: 0.4vw 0.4vw;
+    color: black;
+    font-size: 0.8em;
+    background-color: white;
+    opacity: 100%;
+    border-radius: 5px;
+    cursor:pointer;
+    display: inline-block;
+    z-index: 2000;
+}
+
+.button-div:hover {
+    background-color: $gray1;
+    color: black;
+}
+
+@media only screen and (max-width: $bp-med) {
+    .button-div{
+        display: inline-block;
+        height: auto;
+        border: black 0.8px;
+        border-style: solid;
+        text-align: center;
+        padding: 0.8vw 0.2vw;
+        color: black;
+        font-size: 0.8em;
+        background-color: white;
+        opacity: 100%;
+        border-radius: 5px;
+        cursor:pointer;
+    }
+}

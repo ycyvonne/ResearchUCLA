@@ -32,7 +32,7 @@ class ResourcesPage extends Component {
                 <button  onClick={this.openModal}>Open Sesame!</button>
                 {console.log(this.state)}
                 <div style={{width: "300px" , height: "135px", display:"flex", alignItems:"center", justifyContent:"center"}}>
-                    <Modal type="entire-screen" blur={true} background_color= "white" open={this.state.modalOpened} closeModal={this.closeModal} > 
+                    <Modal type="entire-screen" blur={true} background_color= "white" open={this.state.modalOpened} closeModal={this.closeModal} display_close_button={true}> 
                         jhfgh
                     </Modal>
                 </div>

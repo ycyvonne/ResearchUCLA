@@ -38,9 +38,9 @@ $card-header-height: 64px;
         font-weight: bold;
         margin: 2px 20px 15px 20px;
         font-size: $card-header-font;
-    height: $card-header-height;
-    text-overflow: ellipsis;
-    overflow-y: hidden;
+        height: $card-header-height;
+        text-overflow: ellipsis;
+        overflow-y: hidden;
     }
 
     .card-body{
@@ -74,7 +74,101 @@ $card-header-height: 64px;
             padding: 0px;
             margin: 0;
         }
+    }
 
+    .card-button {
+        float: right;
+        margin: 1% 2%;
+    }
+
+    .options-modal {
+        margin-left: 17.8vw;
+        margin-top: 70px;
+        position: absolute;
+    }
+
+    .edit-modal {
+        position: fixed;
+        z-index: 1000;
+
+        .close-edit-button {
+            text-align: right;
+            float: right;
+            margin-top: 1%;
+        }
+
+        .modal-content{
+            padding: 10px;
+            p {
+                text-align: left;
+                font-size: $card-header-font;
+                font-weight: bold;
+                font-family: $body-font;
+            }
+            form {
+                text-align: left;
+                color: $bright-blue;
+                .group-name {
+                    font-size: 1.4em;
+                    margin: 10px 0;
+                    textarea{
+                        font-size: 0.8em;
+                        width: 70%;
+                        height: 18px;
+                        margin: 5px 0; 
+                        border: 0px;
+                        border-bottom: 1.5px dashed $gray1;
+                    }
+                    textarea:focus {
+                        border-bottom: 1.5px dashed $gray3;
+                    }
+                }
+                .group-content {
+                    font-size: 1.4em;
+                    margin: 10px 0;
+                    textarea{
+                        font-size: 0.7em;
+                        width: 300px;
+                        height: 100px;
+                        margin: 5px 0; 
+                        border: 1.5px dashed $gray1;
+                    }
+                    textarea:focus {
+                        border: 1.5px dashed $gray3;
+                    }
+                }
+                .group-courses {
+                    font-size: 1.4em;
+                    margin: 10px 0;
+                    textarea{
+                        font-size: 0.7em;
+                        width: 300px;
+                        height: 50px;
+                        margin: 5px 0;
+                        border: 0px;
+                        border: 1.5px dashed $gray1;
+                    }
+                    textarea:focus {
+                        border: 1.5px dashed $gray3;
+                    }
+                }
+                .save-button {
+                    margin: 5px 0 10px 0;
+                    p {
+                        font-size: 1.5em;
+                    }
+                    p:hover {
+                        color: $bright-blue;
+                    }
+                }
+            }
+            textarea {
+                // width: 200px;
+                resize: none;
+                padding: 3px;
+            }
+            
+        }
     }
 }
 
@@ -83,6 +177,15 @@ $card-header-height: 64px;
 @media only screen and (max-width: $bp-med) {
     .card{
         width: 100%;
+        .options-modal {
+            margin-left: 75vw;
+            margin-top: 75px;
+        }
+        .edit-modal {
+            .close-edit-button {
+                margin-right: 2%;
+            }
+        }
     }
 }
 
