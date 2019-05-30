@@ -137,8 +137,8 @@ class ResearchGroupCard extends Component {
                                             name="researchGroupEdit"
                                             ref="researchGroupEdit"
                                             type="text"
-                                            onChange={this.handleChange}>
-                                            {this.props.researchGroup}
+                                            onChange={this.handleChange}
+                                            defaultValue={this.props.researchGroup}>
                                         </textarea>
                                     </label>
                                 </div>
@@ -147,20 +147,20 @@ class ResearchGroupCard extends Component {
                                         Description
                                 <br />
                                         <textarea
-                                            name="content">
-                                            {this.props.content}
+                                            name="content"
+                                            defaultValue={this.props.content}>
                                         </textarea>
                                     </label>
                                 </div>
                                 <div className="group-courses">
-                                    <lable>
+                                    <label>
                                         Suggested Courses:
                                 <br />
                                         <textarea
                                             name="courses">
                                             {/* {makeCourseList(this.props.courses).map((course, i) => <li key={i}> {course} </li>)} */}
                                         </textarea>
-                                    </lable>
+                                    </label>
                                 </div>
                                 <div className="save-button">
                                     <Button backgroundColor="white" textColor={vars.gray2} borderColor="white" onClick={this.handleSubmit}

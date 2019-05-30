@@ -30,14 +30,20 @@ class Modal extends Component {
 
     show = () => {
         document.addEventListener('click', this.handleClick);
-        document.body.classList.add('modal-visible');
+        if (this.state.type === 'entire-screen')
+            document.body.classList.add('modal-visible-entire-screen');
+        else
+            document.body.classList.add('modal-visible-in-place');
     }
 
     close = () => {
         this.setState({ open: false },() => {
             document.removeEventListener('click', this.handleClick);
           });
-        document.body.classList.remove('modal-visible');
+        if (this.state.type === 'entire-screen')
+            document.body.classList.remove('modal-visible-entire-screen');
+        else
+            document.body.classList.remove('modal-visible-in-place');
         this.props.closeModal();
     }
 
